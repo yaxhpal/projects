@@ -1,11 +1,11 @@
 -- Set Home branch 
-set @homebranch := 'BL';
+set @homebranch := 'CH';
 
 -- Set item type
-set @itemtype := 'DVD';
+set @itemtype := 'BK';
 
 -- Set inventory date
-set @inventoryDate = '2013-12-16';
+set @inventoryDate = '2013-11-10';
 
 -- Generate total stock of given item available in given Branch
 SELECT items.barcode, biblioitems.isbn, items.biblionumber, biblio.title, 
@@ -23,8 +23,8 @@ biblio.author, items.datelastseen
 FROM items 
 LEFT JOIN biblio      ON  (items.biblionumber = biblio.biblionumber)
 LEFT JOIN biblioitems ON  (items.biblionumber = biblioitems.biblionumber)
-LEFT JOIN issues     ON  (items.itemnumber = issues.itemnumber)
-LEFT JOIN old_issues ON  (items.itemnumber = old_issues.itemnumber)
+LEFT JOIN issues      ON  (items.itemnumber = issues.itemnumber)
+LEFT JOIN old_issues  ON  (items.itemnumber = old_issues.itemnumber)
 WHERE items.itype = @itemtype
 AND   items.homebranch = @homebranch
 AND   ((issues.itemnumber IS NOT NULL
@@ -42,8 +42,8 @@ biblio.author, items.datelastseen
 FROM items 
 LEFT JOIN biblio      ON  (items.biblionumber = biblio.biblionumber)
 LEFT JOIN biblioitems ON  (items.biblionumber = biblioitems.biblionumber)
-LEFT JOIN issues     ON  (items.itemnumber = issues.itemnumber)
-LEFT JOIN old_issues ON  (items.itemnumber = old_issues.itemnumber)
+LEFT JOIN issues      ON  (items.itemnumber = issues.itemnumber)
+LEFT JOIN old_issues  ON  (items.itemnumber = old_issues.itemnumber)
 WHERE items.itype = @itemtype 
 AND   items.homebranch = @homebranch
 AND   ((issues.itemnumber IS NULL
@@ -108,7 +108,7 @@ GROUP BY CONCAT(title,"/",author)
 HAVING COUNT(CONCAT(title,"/",author)) > 1;
 
 
--- Final list of DVD's available in library
+-- Final list of books available in library
 SELECT items.barcode, biblioitems.isbn, items.biblionumber, biblio.title, 
 biblio.author, items.datelastseen
 FROM items 
