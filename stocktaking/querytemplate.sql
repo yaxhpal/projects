@@ -14,9 +14,9 @@ biblio.title, biblio.author, items.datelastseen
 FROM items 
 LEFT JOIN biblio      ON  (items.biblionumber = biblio.biblionumber)
 LEFT JOIN biblioitems ON  (items.biblionumber = biblioitems.biblionumber)
-WHERE items.itype = @itemtype 
-AND   items.homebranch = @homebranch
-ORDER BY items.datelastseen DESC INTO OUTFILE "/tmp/sqlout.csv";
+WHERE items.itype = <<Item Type>> 
+AND   items.homebranch = <<Homebranch>>
+ORDER BY items.datelastseen DESC;
 
 
 -- List of titles issued out
@@ -26,39 +26,39 @@ FROM items
 LEFT JOIN biblio                ON  (items.biblionumber = biblio.biblionumber)
 LEFT JOIN biblioitems           ON  (items.biblionumber = biblioitems.biblionumber)
 LEFT JOIN issues  				ON  (items.itemnumber = issues.itemnumber)
-WHERE items.itype = @itemtype
-AND   items.homebranch = @homebranch
+WHERE items.itype = <<Item Type>>
+AND   items.homebranch = <<Homebranch>>
 AND   issues.itemnumber IS NOT NULL
 GROUP BY items.itemnumber
 ORDER BY items.datelastseen DESC;
 
 
--- List of items in the library
+-- List of items in the library including scanned items
 SELECT /* In the Library */ items.barcode, biblioitems.isbn, items.biblionumber, 
 biblio.title, biblio.author, items.datelastseen
 FROM items 
 LEFT JOIN biblio                ON  (items.biblionumber = biblio.biblionumber)
 LEFT JOIN biblioitems           ON  (items.biblionumber = biblioitems.biblionumber)
 LEFT JOIN issues  				ON  (items.itemnumber = issues.itemnumber)
-WHERE items.itype      = @itemtype
-AND   items.homebranch = @homebranch
+WHERE items.itype      = <<Item Type>>
+AND   items.homebranch = <<Homebranch>>
 AND   issues.itemnumber IS NULL
-AND   items.datelastseen >= @inventoryDate
+AND   items.datelastseen >= <<Inventory Date>>
 GROUP BY items.itemnumber
 ORDER BY items.datelastseen DESC;
 
 
 -- List of items scanned
-SELECT /* Scanned */ items.barcode, biblioitems.isbn, items.biblionumber,
-biblio.title, biblio.author
-FROM items 
-LEFT JOIN biblio      ON  (items.biblionumber = biblio.biblionumber)
-LEFT JOIN biblioitems ON  (items.biblionumber = biblioitems.biblionumber)
-WHERE items.itype = @itemtype 
-AND   items.homebranch = @homebranch
-AND   items.datelastseen =  @inventoryDate 
-GROUP BY items.itemnumber
-ORDER BY items.biblionumber;
+-- SELECT /* Scanned */ items.barcode, biblioitems.isbn, items.biblionumber,
+-- biblio.title, biblio.author
+-- FROM items 
+-- LEFT JOIN biblio      ON  (items.biblionumber = biblio.biblionumber)
+-- LEFT JOIN biblioitems ON  (items.biblionumber = biblioitems.biblionumber)
+-- WHERE items.itype = <<Item Type>> 
+-- AND   items.homebranch = <<Homebranch>>
+-- AND   items.datelastseen =  << Inventory Date>>
+-- GROUP BY items.itemnumber
+-- ORDER BY items.biblionumber;
 
 
 -- List of items not scanned
@@ -68,9 +68,9 @@ FROM items
 LEFT JOIN biblio                ON  (items.biblionumber = biblio.biblionumber)
 LEFT JOIN biblioitems           ON  (items.biblionumber = biblioitems.biblionumber)
 LEFT JOIN issues  				ON  (items.itemnumber = issues.itemnumber)
-WHERE items.itype = @itemtype 
-AND   items.homebranch = @homebranch
-AND   items.datelastseen <  @inventoryDate 
+WHERE items.itype = <<Item Type>> 
+AND   items.homebranch = <<Homebranch>>
+AND   items.datelastseen <  << Inventory Date (YYYY-MM-DD)>>
 AND   issues.itemnumber IS NULL
 GROUP BY items.itemnumber
 ORDER BY items.dateaccessioned DESC;
@@ -83,12 +83,27 @@ FROM items
 LEFT JOIN biblio                ON  (items.biblionumber = biblio.biblionumber)
 LEFT JOIN biblioitems           ON  (items.biblionumber = biblioitems.biblionumber)
 LEFT JOIN issues  				ON  (items.itemnumber = issues.itemnumber)
-WHERE items.itype = @itemtype
-AND   items.homebranch = @homebranch
-AND   items.datelastseen <  @inventoryDate 
+WHERE items.itype = <<Item Type>> 
+AND   items.homebranch = <<Homebranch>>
+AND   items.datelastseen <  << Inventory Date (YYYY-MM-DD)>>
 AND   issues.itemnumber IS NULL
 AND   items.itemlost = 0
 AND   items.wthdrawn = 0
+GROUP BY items.itemnumber
+ORDER BY items.dateaccessioned DESC;
+
+-- List of items not scanned and missing
+SELECT /* Not scanned and missing */ items.barcode, biblioitems.isbn, items.biblionumber,
+biblio.title, biblio.author, items.datelastseen
+FROM items 
+LEFT JOIN biblio                ON  (items.biblionumber = biblio.biblionumber)
+LEFT JOIN biblioitems           ON  (items.biblionumber = biblioitems.biblionumber)
+LEFT JOIN issues  				ON  (items.itemnumber = issues.itemnumber)
+WHERE items.itype = <<Item Type>> 
+AND   items.homebranch = <<Homebranch>>
+AND   items.datelastseen <  << Inventory Date (YYYY-MM-DD)>>
+AND   issues.itemnumber IS NULL
+AND   ( items.itemlost != 0 OR items.wthdrawn != 0)
 GROUP BY items.itemnumber
 ORDER BY items.dateaccessioned DESC;
 
@@ -99,8 +114,8 @@ biblioitems.isbn, title, author
 FROM biblio 
 LEFT JOIN biblioitems USING (biblionumber) 
 LEFT JOIN items USING (biblionumber)
-WHERE items.homebranch = @homebranch
-AND   items.itype = @itemtype 
+WHERE items.homebranch = <<Homebranch>>
+AND   items.itype = <<Item Type>> 
 GROUP BY CONCAT(title,"/",author) 
 HAVING COUNT(CONCAT(title,"/",author)) > 1;
 
@@ -112,8 +127,8 @@ FROM items
 LEFT JOIN biblio                ON  (items.biblionumber = biblio.biblionumber)
 LEFT JOIN biblioitems           ON  (items.biblionumber = biblioitems.biblionumber)
 LEFT JOIN issues  				ON  (items.itemnumber = issues.itemnumber)
-WHERE items.itype = @itemtype 
-AND   items.homebranch = @homebranch
-AND   (( items.datelastseen >= @inventoryDate ) OR (issues.itemnumber IS NOT NULL))
+WHERE items.itype = <<Item Type>> 
+AND   items.homebranch = <<Homebranch>>
+AND   (( items.datelastseen >= << Inventory Date (YYYY-MM-DD)>>) OR (issues.itemnumber IS NOT NULL))
 GROUP BY items.itemnumber
 ORDER BY items.datelastseen DESC;

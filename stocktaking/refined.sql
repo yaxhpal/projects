@@ -7,7 +7,6 @@ set @itemtype := 'DVD';
 -- Set inventory date
 set @inventoryDate = '2013-12-16';
 
-
 -- Generate total stock of given item available in given Branch
 SELECT /* General stock */ items.barcode, biblioitems.isbn, items.biblionumber,
 biblio.title, biblio.author, items.datelastseen
@@ -16,7 +15,7 @@ LEFT JOIN biblio      ON  (items.biblionumber = biblio.biblionumber)
 LEFT JOIN biblioitems ON  (items.biblionumber = biblioitems.biblionumber)
 WHERE items.itype = @itemtype 
 AND   items.homebranch = @homebranch
-ORDER BY items.datelastseen DESC INTO OUTFILE "/tmp/sqlout.csv";
+ORDER BY items.datelastseen DESC;
 
 
 -- List of titles issued out
@@ -29,6 +28,7 @@ LEFT JOIN issues  				ON  (items.itemnumber = issues.itemnumber)
 WHERE items.itype = @itemtype
 AND   items.homebranch = @homebranch
 AND   issues.itemnumber IS NOT NULL
+AND   issues.issuedate  < @inventoryDate
 GROUP BY items.itemnumber
 ORDER BY items.datelastseen DESC;
 
@@ -56,7 +56,7 @@ LEFT JOIN biblio      ON  (items.biblionumber = biblio.biblionumber)
 LEFT JOIN biblioitems ON  (items.biblionumber = biblioitems.biblionumber)
 WHERE items.itype = @itemtype 
 AND   items.homebranch = @homebranch
-AND   items.datelastseen =  @inventoryDate 
+AND   items.datelastseen =  @inventoryDate
 GROUP BY items.itemnumber
 ORDER BY items.biblionumber;
 
@@ -70,7 +70,7 @@ LEFT JOIN biblioitems           ON  (items.biblionumber = biblioitems.biblionumb
 LEFT JOIN issues  				ON  (items.itemnumber = issues.itemnumber)
 WHERE items.itype = @itemtype 
 AND   items.homebranch = @homebranch
-AND   items.datelastseen <  @inventoryDate 
+AND   items.datelastseen <  @inventoryDate
 AND   issues.itemnumber IS NULL
 GROUP BY items.itemnumber
 ORDER BY items.dateaccessioned DESC;
@@ -83,9 +83,9 @@ FROM items
 LEFT JOIN biblio                ON  (items.biblionumber = biblio.biblionumber)
 LEFT JOIN biblioitems           ON  (items.biblionumber = biblioitems.biblionumber)
 LEFT JOIN issues  				ON  (items.itemnumber = issues.itemnumber)
-WHERE items.itype = @itemtype
+WHERE items.itype = @itemtype 
 AND   items.homebranch = @homebranch
-AND   items.datelastseen <  @inventoryDate 
+AND   items.datelastseen <  @inventoryDate
 AND   issues.itemnumber IS NULL
 AND   items.itemlost = 0
 AND   items.wthdrawn = 0
@@ -114,6 +114,6 @@ LEFT JOIN biblioitems           ON  (items.biblionumber = biblioitems.biblionumb
 LEFT JOIN issues  				ON  (items.itemnumber = issues.itemnumber)
 WHERE items.itype = @itemtype 
 AND   items.homebranch = @homebranch
-AND   (( items.datelastseen >= @inventoryDate ) OR (issues.itemnumber IS NOT NULL))
+AND   (( items.datelastseen >= @inventoryDate) OR (issues.itemnumber IS NOT NULL))
 GROUP BY items.itemnumber
 ORDER BY items.datelastseen DESC;
