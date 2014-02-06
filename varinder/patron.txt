@@ -1,0 +1,15 @@
+Modify Staff patron Varinder Kumar
+
+Patron identity
+-------------------------------------------
+Salutation -> borrowers.title
+Surname -> borrowers.surname
+Required Middle name -> borrowers.othernames
+First name -> borrowers.firstname
+Date of birth -> borrowers.dateofbirth
+Initials-> borrowers.initials 
+Female  Male
+
+Main Address
+
+Street Number --> 
