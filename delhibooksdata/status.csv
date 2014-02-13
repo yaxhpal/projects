@@ -1,0 +1,22 @@
+category	authorised_value	lib
+DAMAGED	0	
+DAMAGED	1	Damaged
+LOST	0	
+LOST	2	Long Overdue (Lost)
+LOST	1	Lost
+LOST	3	Lost and Paid For
+LOST	4	Missing
+WITHDRAWN	0	On shelf
+WITHDRAWN	2	Backdated edition
+WITHDRAWN	3	Copy damaged
+WITHDRAWN	4	Missing for long time
+WITHDRAWN	5	Later edition avilable
+WITHDRAWN	6	Less used
+WITHDRAWN	7	Long overdue
+WITHDRAWN	8	Lost & replaced for
+WITHDRAWN	9	Multiple copies
+WITHDRAWN	10	Out of policy
+WITHDRAWN	11	Superceded edition
+WITHDRAWN	12	Others
+WITHDRAWN	13	Outdated
+WITHDRAWN	1	Reason not specified

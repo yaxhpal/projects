@@ -1,0 +1,11 @@
+export PERL5LIB=/opt/kohaclone
+export KOHA_CONF=/etc/koha-dev-prod/etc/koha-conf.xml
+export KOHA_DEBUG=1
+
+
+
+
+
+
+
+45  5 * * *  $KOHA_CRON_PATH/fines.pl -v >/tmp/fines.log 2>&1

@@ -1,5 +1,0 @@
-cat toberemovedstaff.txt | awk -v sq="'" -F  "," '/1/ {print "UPDATE borrowers SET flags="sq$3sq" WHERE borrowernumber="sq$2sq";"}' > restoreflags.sql
-
-cat toberemoved-user-permissions.txt | awk -v sq="'" -F  "," '/1/ {print "INSERT INTO "sq"user_permissions"sq" ("sq"borrowernumber"sq","sq"module_bit"sq","sq"code"sq") VALUES ("$1","$2","sq$3sq");"}' > restorepermissions.sql
-
-cat to-be-removed.txt | awk -v sq="'" -F  "," '/1/ {print "UPDATE borrowers SET flags="sq"0"sq" WHERE borrowernumber="sq$1sq";\nDELETE FROM user_permissions   WHERE borrowernumber = "sq$1sq";\n"}' >deletepermissions.sql

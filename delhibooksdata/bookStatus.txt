@@ -1,0 +1,31 @@
+1)  Withdrawn
+
+2)  Copy Damaged
+
+3)  Damaged
+
+4)  Lost
+
+5)  Withdrawn and lost
+
+6)  Backdated edition
+
+7)  Later edition available
+
+8)  Less used
+
+9)  Lost and paid for
+
+10) Lost and replaced for
+
+11) Missing for long time
+
+12) Out of policy
+
+13) Superceded edition
+
+14) Outdated
+
+15) Reason not specified
+
+16) Multiple copies
