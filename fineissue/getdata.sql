@@ -16,6 +16,7 @@ SELECT
     issues.date_due,
     accountlines.amount,
     accountlines.amountoutstanding,
+    accountlines.lastincrement,
     accountlines.accounttype,
     accountlines.date,
     accountlines.description
