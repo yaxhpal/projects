@@ -84,7 +84,7 @@ SELECT /* Could not be located */
     items.itemnumber as 'Accession Number',
 	biblio.biblionumber as 'Biblio Number',
     items.barcode as 'Barcode',
-	biblioitems.isbn as 'ISBN',
+    biblioitems.isbn as 'ISBN',
     items.dateaccessioned as ' Accession Date',  
     items.datelastseen as 'Last Seen Date',
     items.homebranch as 'Library Code',
@@ -96,13 +96,13 @@ LEFT JOIN biblio ON (items.biblionumber = biblio.biblionumber)
 LEFT JOIN biblioitems ON  (items.biblionumber = biblioitems.biblionumber)
 LEFT JOIN issues ON (items.itemnumber = issues.itemnumber)
 WHERE items.homebranch = <<Library|branches>>
-AND   items.datelastseen < <<Inventory date>>
+AND   ( items.datelastseen < <<Inventory date>> OR items.datelastseen IS NULL)
 AND   items.itype LIKE <<Enter item type (% for any)>>
 AND   items.itype NOT LIKE 'EBRA%'
 AND   items.wthdrawn = 0
 AND   items.itemlost = 0
 AND   issues.itemnumber IS NULL
-ORDER BY items.itype, items.datelastseen DESC, items.dateaccessioned;
+ORDER BY items.itype, items.datelastseen DESC, items.dateaccessioned
 
 
 /* List of all the withdrawn items */
