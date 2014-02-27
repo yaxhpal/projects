@@ -1,0 +1,15 @@
+isbn10
+isbn13
+vendor_id
+type
+title
+author
+publisher
+description
+date_published
+copyright_year
+keywords
+thumbnail_url
+image_url
+edition
+number_of_pages
