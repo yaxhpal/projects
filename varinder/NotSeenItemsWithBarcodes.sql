@@ -4,7 +4,7 @@ SELECT /* Could not be located */
     biblio.biblionumber as 'Biblio Number',
     items.barcode as 'Barcode',
     biblioitems.isbn as 'ISBN',
-	items.callnumber as 'Call Number',
+	items.itemcallnumber as 'Call Number',
     items.cn_source as 'Classification',
     items.dateaccessioned as ' Accession Date',  
     items.datelastseen as 'Last Seen Date',
