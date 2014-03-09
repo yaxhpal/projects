@@ -1,0 +1,33 @@
+image_path
+title
+MARCAUTHORS
+MARCAUTHOR_SUBFIELDS_LOOP
+editionstatement
+publishercode
+place
+publicationyear
+pages
+illus
+MARCISBNS
+issn
+collectiontitle
+collectionissn
+unititles
+subject
+copyrightdate
+description ---> itemtype
+details (description)
+
+nielsen-image_url
+nielsen-title
+nielsen-authors
+nielsen-edition
+nielsen-publisher
+nielsen-pulishing-place
+nielsen-publishing-year
+nielsen-pages
+nielsen-physical-condition
+nielsen-isbn
+nielsen-issn
+nielsen-subject
+nielsen-description

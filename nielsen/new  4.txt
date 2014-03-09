@@ -1,0 +1,13 @@
+nielsen-image_url =>
+nielsen-title =>
+nielsen-authors =>
+nielsen-edition =>
+nielsen-publisher =>
+nielsen-pulishing-place =>
+nielsen-publishing-year =>
+nielsen-pages =>
+nielsen-physical-condition =>
+nielsen-isbn =>
+nielsen-issn =>
+nielsen-subject =>
+nielsen-description =>

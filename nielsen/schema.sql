@@ -1,6 +1,5 @@
- 
 --
--- Table structure for table `member_registration`
+-- Table structure for table `externaldata`
 --
 
 DROP TABLE IF EXISTS `externaldata`;
@@ -18,10 +17,11 @@ CREATE TABLE `externaldata` (
     `date_published` DATE DEFAULT NULL,
     `copyright_year` SMALLINT DEFAULT NULL,
     `subject` MEDIUMTEXT DEFAULT NULL,
+    `edition` TINYINT DEFAULT 1,
+	`number_of_pages` SMALLINT DEFAULT NULL,
+    `imageflag` TINYINT DEFAULT 0,
     `thumbnail_url` MEDIUMTEXT DEFAULT NULL,
     `image_url` MEDIUMTEXT DEFAULT NULL,
-    `edition` TINYINT DEFAULT 1,
-    `number_of_pages` SMALLINT DEFAULT NULL,
     `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
     KEY `isbn` (`isbn13`)
