@@ -1,0 +1,155 @@
+biblioitemnumber	biblionumber	volume	number	itemtype	isbn	issn	publicationyear	publishercode	volumedate	volumedesc	collectiontitle	collectionissn	collectionvolume	editionstatement	editionresponsibility	timestamp	illus	pages	notes	size	place	lccn	marc	url	cn_source	cn_class	cn_item	cn_suffix	cn_sort	totalissues	marcxml	is_present
+250060	250060	NULL	NULL	NULL	9780194422703	NULL	NULL	Oxford University Press	NULL	NULL	NULL	NULL	NULL	NULL	NULL	03/13/14 02:01 PM	NULL	NULL	NULL	NULL	United Kingdom	NULL	...	NULL	NULL	NULL	NULL	NULL		NULL	"<?xml version=""1.0"" encoding=""UTF-8""?>
+<collection
+  xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
+  xsi:schemaLocation=""http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd""
+  xmlns=""http://www.loc.gov/MARC21/slim"">
+
+<record>
+  <leader>01874nam a22003492a 4500</leader>
+  <controlfield tag=""001"">9780194422703</controlfield>
+  <controlfield tag=""003"">UK-WkNB</controlfield>
+  <controlfield tag=""005"">20140306000000.0</controlfield>
+  <controlfield tag=""007"">zm</controlfield>
+  <controlfield tag=""008"">071220e200805uuxxk||||| |||||||||||eng|d</controlfield>
+  <datafield tag=""020"" ind1="" "" ind2="" "">
+    <subfield code=""a"">9780194422703 :</subfield>
+    <subfield code=""c"">x{a3}13.50</subfield>
+  </datafield>
+  <datafield tag=""020"" ind1="" "" ind2="" "">
+    <subfield code=""a"">0194422704 :</subfield>
+    <subfield code=""c"">x{a3}13.50</subfield>
+  </datafield>
+  <datafield tag=""040"" ind1="" "" ind2="" "">
+    <subfield code=""a"">UK-WkNB</subfield>
+    <subfield code=""b"">eng</subfield>
+    <subfield code=""c"">UK-WkNB</subfield>
+  </datafield>
+  <datafield tag=""072"" ind1="" "" ind2=""7"">
+    <subfield code=""a"">EL</subfield>
+    <subfield code=""2"">bicssc</subfield>
+  </datafield>
+  <datafield tag=""072"" ind1="" "" ind2=""7"">
+    <subfield code=""a"">ELT</subfield>
+    <subfield code=""2"">eflch</subfield>
+  </datafield>
+  <datafield tag=""082"" ind1=""0"" ind2=""4"">
+    <subfield code=""a"">428.24</subfield>
+    <subfield code=""2"">22</subfield>
+  </datafield>
+  <datafield tag=""100"" ind1=""1"" ind2="" "">
+    <subfield code=""a"">Paterson, Anice.</subfield>
+  </datafield>
+  <datafield tag=""245"" ind1=""1"" ind2=""0"">
+    <subfield code=""a"">English through music</subfield>
+    <subfield code=""h"">[multimedia] /</subfield>
+    <subfield code=""c"">Anice Paterson, Jane Willis.</subfield>
+  </datafield>
+  <datafield tag=""260"" ind1="" "" ind2="" "">
+    <subfield code=""a"">Oxford :</subfield>
+    <subfield code=""b"">Oxford University Press :</subfield>
+    <subfield code=""b"">[distributor] Oxford University Press Distribution Services :</subfield>
+    <subfield code=""b"">[distributor] Oxford University Press Australia :</subfield>
+    <subfield code=""b"">[distributor] Oxford University Press Australia :</subfield>
+    <subfield code=""b"">[distributor] Oxford University Press Southern Africa :</subfield>
+    <subfield code=""b"">[distributor] Oxford University Press, USA,</subfield>
+    <subfield code=""c"">2008.</subfield>
+  </datafield>
+  <datafield tag=""300"" ind1="" "" ind2="" "">
+    <subfield code=""a"">96 p. :</subfield>
+    <subfield code=""b"">b&amp;w, ill.</subfield>
+  </datafield>
+  <datafield tag=""365"" ind1="" "" ind2="" "">
+    <subfield code=""a"">02</subfield>
+    <subfield code=""b"">13.50</subfield>
+    <subfield code=""c"">GBP</subfield>
+    <subfield code=""d"">00</subfield>
+    <subfield code=""h"">Z 13.50 0.0 13.50 0.00</subfield>
+    <subfield code=""j"">GB</subfield>
+    <subfield code=""k"">xxk</subfield>
+    <subfield code=""m"">Oxford University Press Distribution Services</subfield>
+    <subfield code=""2"">onix-pt</subfield>
+  </datafield>
+  <datafield tag=""365"" ind1="" "" ind2="" "">
+    <subfield code=""a"">02</subfield>
+    <subfield code=""b"">12.50</subfield>
+    <subfield code=""c"">USD</subfield>
+    <subfield code=""d"">00</subfield>
+    <subfield code=""e"">Local taxes may apply</subfield>
+    <subfield code=""h"">Z 12.50 0.0 12.50 0.00</subfield>
+    <subfield code=""j"">US</subfield>
+    <subfield code=""k"">xxu</subfield>
+    <subfield code=""m"">Ingram Book Company</subfield>
+    <subfield code=""2"">onix-pt</subfield>
+  </datafield>
+  <datafield tag=""365"" ind1="" "" ind2="" "">
+    <subfield code=""a"">02</subfield>
+    <subfield code=""b"">25.95</subfield>
+    <subfield code=""c"">AUD</subfield>
+    <subfield code=""d"">00</subfield>
+    <subfield code=""h"">S 23.59 10.0 25.95 2.36</subfield>
+    <subfield code=""j"">AU</subfield>
+    <subfield code=""k"">at</subfield>
+    <subfield code=""m"">Oxford University Press Australia</subfield>
+    <subfield code=""2"">onix-pt</subfield>
+  </datafield>
+  <datafield tag=""365"" ind1="" "" ind2="" "">
+    <subfield code=""a"">02</subfield>
+    <subfield code=""b"">35.99</subfield>
+    <subfield code=""c"">NZD</subfield>
+    <subfield code=""d"">00</subfield>
+    <subfield code=""h"">S 31.30 15.0 35.99 4.69</subfield>
+    <subfield code=""j"">NZ</subfield>
+    <subfield code=""k"">nz</subfield>
+    <subfield code=""m"">Oxford University Press Australia</subfield>
+    <subfield code=""2"">onix-pt</subfield>
+  </datafield>
+  <datafield tag=""366"" ind1="" "" ind2="" "">
+    <subfield code=""b"">20080515</subfield>
+    <subfield code=""c"">IP 20130919</subfield>
+    <subfield code=""f"">AOXUPEC</subfield>
+    <subfield code=""j"">GB</subfield>
+    <subfield code=""k"">xxk</subfield>
+    <subfield code=""m"">Oxford University Press Distribution Services</subfield>
+    <subfield code=""2"">UK-WkNB</subfield>
+  </datafield>
+  <datafield tag=""366"" ind1="" "" ind2="" "">
+    <subfield code=""b"">20081015</subfield>
+    <subfield code=""j"">US</subfield>
+    <subfield code=""k"">xxu</subfield>
+    <subfield code=""m"">Ingram</subfield>
+    <subfield code=""2"">UK-WkNB</subfield>
+  </datafield>
+  <datafield tag=""366"" ind1="" "" ind2="" "">
+    <subfield code=""b"">20080508</subfield>
+    <subfield code=""c"">TO 20120418</subfield>
+    <subfield code=""j"">AU</subfield>
+    <subfield code=""k"">at</subfield>
+    <subfield code=""m"">Oxford University Press Australia</subfield>
+    <subfield code=""2"">UK-WkNB</subfield>
+  </datafield>
+  <datafield tag=""366"" ind1="" "" ind2="" "">
+    <subfield code=""b"">20080515</subfield>
+    <subfield code=""c"">TO 20120418</subfield>
+    <subfield code=""j"">NZ</subfield>
+    <subfield code=""k"">nz</subfield>
+    <subfield code=""m"">Oxford University Press Australia</subfield>
+    <subfield code=""2"">UK-WkNB</subfield>
+  </datafield>
+  <datafield tag=""500"" ind1="" "" ind2="" "">
+    <subfield code=""a"">Mixed media product. Contains Paperback and CD-Audio (Performance - spoken word).</subfield>
+  </datafield>
+  <datafield tag=""650"" ind1="" "" ind2=""7"">
+    <subfield code=""a"">ELT: learning material &amp; coursework.</subfield>
+    <subfield code=""2"">bicssc</subfield>
+  </datafield>
+  <datafield tag=""650"" ind1="" "" ind2=""7"">
+    <subfield code=""a"">ELT.</subfield>
+    <subfield code=""2"">eflch</subfield>
+  </datafield>
+  <datafield tag=""700"" ind1=""1"" ind2="" "">
+    <subfield code=""a"">Willis, Jane.</subfield>
+  </datafield>
+</record>
+
+</collection>"	1
