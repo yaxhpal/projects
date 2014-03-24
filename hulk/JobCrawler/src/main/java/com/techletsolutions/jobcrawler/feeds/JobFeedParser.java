@@ -11,7 +11,15 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.XMLEvent;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class JobFeedParser {
+	final static Logger logger = LoggerFactory.getLogger(JobFeedParser.class);
 	static final String TITLE = "title";
 	static final String DESCRIPTION = "description";
 	static final String SOURCE = "source";
@@ -26,11 +34,13 @@ public class JobFeedParser {
 
 	final URL url;
 	final String category;
+	final String source;
 
-	public JobFeedParser(String feedUrl, String category) {
+	public JobFeedParser(String feedUrl, String category, String source) {
 		try {
 			this.url = new URL(feedUrl);
 			this.category = category;
+			this.source = source;
 		} catch (MalformedURLException e) {
 			throw new RuntimeException(e);
 		}
@@ -102,12 +112,13 @@ public class JobFeedParser {
 						JobItem jobItem = new JobItem();
 						jobItem.setAuthor(author);
 						jobItem.setDescription(description);
-						jobItem.setSource(source);
+						jobItem.setPublisher(source);
 						jobItem.setGuid(guid);
 						jobItem.setLink(link);
 						jobItem.setTitle(title);
 						jobItem.setPubDate(pubdate);
 						jobItem.setCategory(category.toUpperCase());
+						setExtraDetails(jobItem);
 						feed.getJobItems().add(jobItem);
 						event = eventReader.nextEvent();
 						continue;
@@ -136,5 +147,39 @@ public class JobFeedParser {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	private void setExtraDetails(JobItem jobItem) {
+		logger.info("Getting extra details: Job title: {}",  jobItem.getTitle());
+		Document doc = null;
+		try {
+			doc = Jsoup.connect(jobItem.getLink()).get();
+		} catch (IOException e) {
+			logger.error("There wan an error while getting url contents through jsoup.", e);
+			return;
+		}
+		if (source.equalsIgnoreCase("INDEED.COM")) {
+			jobItem.setTitle(getFirstElementText(doc, "b.jobtitle", jobItem.getTitle()));
+			jobItem.setPublisher(getFirstElementText(doc, "span.company", jobItem.getPublisher()));
+			jobItem.setLocation(getFirstElementText(doc, "span.location", jobItem.getLocation()));
+			jobItem.setDescription(getFirstElementText(doc, "span.summary", jobItem.getDescription()));
+		} else if (source.equalsIgnoreCase("SIMPLYHIRED.COM")) {
+			jobItem.setTitle(getFirstElementText(doc, "span.title", jobItem.getTitle()));
+			jobItem.setPublisher(getFirstElementText(doc, "p.company", jobItem.getPublisher()).replace("Company:", "").trim());
+			jobItem.setLocation(getFirstElementText(doc, "p.location", jobItem.getLocation()).replace("Location:", "").trim());
+			jobItem.setDescription(getFirstElementText(doc, "p.description", jobItem.getDescription()));
+		} else {
+			logger.info("Defaulting to doing nothing...");
+		}
+	}
+	
+	private String getFirstElementText(Document doc, String cssQuery, String oldValue) {
+		Elements els;
+		els = doc.select(cssQuery);
+		if (els != null && !els.isEmpty()) {
+			Element el = els.get(0);
+			return el.text().trim();
+		}
+		return oldValue;
 	}
 }

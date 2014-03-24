@@ -15,7 +15,8 @@ public class JobItem {
 	private String author;
 	private String guid;
 	private String pubDate;
-	private String source;
+	private String publisher;
+	private String location;
 
 	public String getTitle() {
 		return title;
@@ -57,14 +58,6 @@ public class JobItem {
 		this.guid = guid;
 	}
 	
-	public String getSource() {
-		return source;
-	}
-
-	public void setSource(String source) {
-		this.source = source;
-	}
-	
 	public String getPubDate() {
 		return pubDate;
 	}
@@ -81,11 +74,26 @@ public class JobItem {
 		this.category = category;
 	}
 	
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+	
 	@Override
 	public String toString() {
 		return "FeedMessage [title=" + title + ", description=" + description
 				+ ", link=" + link + ", author=" + author + ", guid=" + guid
-				+ ", pubDate =" + pubDate + ", source=" + source + "]";
+				+ ", pubDate =" + pubDate + ", source=" + getPublisher() + "]";
 	}
-
 }
