@@ -1,0 +1,124 @@
+-- MySQL dump 10.13  Distrib 5.5.33, for Linux (x86_64)
+--
+-- Host: localhost    Database: koha
+-- ------------------------------------------------------
+-- Server version	5.5.33-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+--
+-- Table structure for table `deleted_rfid_msgs`
+--
+
+DROP TABLE IF EXISTS `deleted_rfid_msgs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `deleted_rfid_msgs` (
+  `alertnumber` int(11) NOT NULL,
+  `borrowernumber` int(11) DEFAULT NULL,
+  `itemnumber` int(11) DEFAULT NULL,
+  `transactiontype` varchar(100) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `status` char(1) DEFAULT NULL,
+  PRIMARY KEY (`alertnumber`),
+  KEY `emailborridx` (`borrowernumber`),
+  KEY `emailitemidx` (`itemnumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `coupons`
+--
+
+DROP TABLE IF EXISTS `coupons`;
+
+CREATE TABLE `coupons` (
+	`couponcode` CHAR(8) NOT NULL,
+	`type` CHAR(1) NOT NULL, /* P = percentage, A = amount */
+	`startdate` DATE NOT NULL,
+	`enddate` DATE DEFAULT NULL,
+	`value` DECIMAL(28,6) DEFAULT NULL,  /* Absolute value  */
+	`createddate` TIMESTAMP DEFAULT 0, /* Keep it without quote */
+	`createdby` INT(11) NOT NULL DEFAULT '0',
+	`modifieddate` TIMESTAMP NOT NULL,
+	`modifiedby` INT(11) NOT NULL DEFAULT '0',
+	`maxlimit` INT(11) DEFAULT NULL,
+	`used` INT(11) DEFAULT '0',
+	PRIMARY KEY (`couponcode`)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
+ALTER TABLE member_registration ADD couponcode CHAR(8) DEFAULT NULL;
+
+--
+-- Table structure for table `externaldata`
+--
+
+DROP TABLE IF EXISTS `externaldata`;
+
+CREATE TABLE `externaldata` (
+    `id` 				SERIAL,
+    `isbn10` 			VARCHAR(13) DEFAULT NULL,
+    `isbn13` 			VARCHAR(17) DEFAULT NULL,
+    `vendor_id` 		VARCHAR(30) DEFAULT NULL,
+    `type` 				VARCHAR(10) DEFAULT NULL,
+    `title`				MEDIUMTEXT 	DEFAULT NULL,
+    `authors`			MEDIUMTEXT DEFAULT NULL,
+    `publisher` 		MEDIUMTEXT DEFAULT NULL,
+    `publishing_place`	VARCHAR(256) DEFAULT NULL,
+    `date_published`	DATE DEFAULT NULL,
+    `description`		MEDIUMTEXT DEFAULT NULL,
+    `subjects`			MEDIUMTEXT DEFAULT NULL,
+    `edition` 			TINYINT	DEFAULT 1,
+	`number_of_pages`	SMALLINT DEFAULT NULL,
+	`product_format` 	VARCHAR(128) DEFAULT NULL,
+    `thumbnail_url` 	MEDIUMTEXT DEFAULT NULL,
+    `image_url` 		MEDIUMTEXT DEFAULT NULL,
+    `imageflag` 		TINYINT DEFAULT 0,
+    `marc` 				LONGBLOB DEFAULT NULL,
+    `timestamp` 		TIMESTAMP,
+    PRIMARY KEY (`id`),
+    KEY `isbn` (`isbn13`)
+)  ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+--
+-- Table structure for table `leadcampaign`
+--
+
+DROP TABLE IF EXISTS `leadcampaign`;
+CREATE TABLE `leadcampaign` (
+  `id` SERIAL,
+  `campaign_id` varchar(128),
+  `firstname` varchar(128),
+  `lastname` varchar(128),
+  `email` varchar(128),
+  `mobile` INT(14),
+  `city` varchar(128),
+  `city_other` varchar(128),
+  `reg_id`  INT(11),
+  `is_member` BOOLEAN DEFAULT 0,
+  `categorycode` varchar(100),
+  PRIMARY KEY (`id`, `campaign_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-02-24 12:59:56
