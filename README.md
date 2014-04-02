@@ -88,3 +88,30 @@ Pop
 * Definitions can include multiple paragraphs too
 
 *[ABBR]: Markdown plus abbreviations (produces an <abbr> tag)
+
+```html
+<!DOCTYPE html>
+<!-- http://videos.example.com/index.html -->
+<html>
+  <head>
+    <script>
+      // scope defaults to "/*"
+      navigator.serviceWorker.register("/assets/v1/worker.js").then(
+        function(serviceWorker) {
+          console.log("success!");
+          serviceWorker.postMessage("Howdy from your installing page.");
+          // To use the serviceWorker immediately, you might call window.location.reload()
+        },
+        function(why) {
+          console.error("Installing the worker failed!:", why);
+        });
+    </script>
+    <link rel="stylesheet" href="/assets/v1/base.css">
+    <script src="/assets/v1/app.js"></script>
+    <script src="/services/inventory/data.json"></script>
+  </head>
+  <body>
+    <img src="/assets/v1/logo.png" alt="Example App Logo">
+  </body>
+</html>
+```
