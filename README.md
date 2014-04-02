@@ -34,8 +34,9 @@ words are ignored in Markdown Extra.
 And now some code:
 
     // Code is just text indented a bit
-    which(is_easy) to_remember();
-
+```js
+which(is_easy) to_remember();
+```
 ~~~
 
 // Markdown extra adds un-indented code blocks too
