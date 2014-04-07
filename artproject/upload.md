@@ -8,8 +8,6 @@ We are going to have CSV(Comma Separated Values) file format, simply because the
 
 ## How does it work? ##
 
-On admin interface 
-	|
-	-- Upload , user chooses data file and selects data type i.e. whether it is artist data, artwork data etc
+On admin interface, user chooses data file and selects data type i.e. whether it is artist data, artwork data etc
 
  
