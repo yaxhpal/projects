@@ -10,6 +10,10 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
+import org.apache.commons.logging.Log;
 
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSVerifier;
@@ -17,6 +21,7 @@ import com.nimbusds.jose.crypto.MACVerifier;
 import com.nimbusds.jwt.SignedJWT;
 
 import es.oeuvr.api.LoginRequest;
+import es.oeuvr.domain.Artist;
 import es.oeuvr.domain.Artwork;
 import es.oeuvr.domain.Comment;
 import es.oeuvr.domain.Location;
@@ -131,6 +136,18 @@ public class AppService {
 			entity = findByIdQuery.getSingleResult();
 		} catch (NoResultException nre) {
 			// Ignore
+		}
+		return entity;
+	}
+
+	public Artist findArtistById(Long id) {
+		TypedQuery<Artist> findByIdQuery = em.createQuery("SELECT a FROM Artist a WHERE a.id = :entityId", Artist.class);
+		findByIdQuery.setParameter("entityId", id);
+		Artist entity = null;
+		try {
+			entity = findByIdQuery.getSingleResult();
+		} catch (NoResultException nre) {
+			nre.printStackTrace();
 		}
 		return entity;
 	}

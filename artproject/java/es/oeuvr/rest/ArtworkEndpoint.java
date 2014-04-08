@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.validation.ConstraintViolationException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
@@ -20,7 +21,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.UriBuilder;
 
 import es.oeuvr.domain.Artwork;
 import es.oeuvr.domain.Comment;
@@ -46,14 +46,15 @@ public class ArtworkEndpoint {
 	
 	@POST
 	@Consumes("application/json")
+	@Produces("application/json")
 	public Response create(Artwork entity) {
-		entity.setArtBookBio("ArtBookBio");
-		entity.setFramedDepth(100);
-		entity.setFramedHeight(1500);
-		entity.setFramedWidth(1700);
-		entity.setOrigin("Origin");
-		em.persist(entity);
-		return Response.created(UriBuilder.fromResource(ArtworkEndpoint.class).path(String.valueOf(entity.getId())).build()).build();
+		try {
+			em.persist(entity);
+		} catch (ConstraintViolationException e) {
+
+		}
+		ArtworkModel newNodel = getArtWorkModelFromArtWork(entity);
+		return Response.ok(newNodel).status(Status.CREATED).build();
 	}
 
 	@DELETE
@@ -89,23 +90,24 @@ public class ArtworkEndpoint {
 	@Produces("application/json")
 	public List<ArtworkModel> listAll(
 			@DefaultValue("0")   @QueryParam("page") int page,
-			@DefaultValue("10")  @QueryParam("items") int items_per_page,
+			@DefaultValue("10")  @QueryParam("per-page") int per_page,
 			@DefaultValue("ASC") @QueryParam("order") String order,
-			@DefaultValue("id")  @QueryParam("orderBy") List<String> orderBy) {
+			@DefaultValue("id")  @QueryParam("sort") List<String> orderBy) {
 
 		String query = "SELECT a FROM Artwork a LEFT JOIN FETCH a.category LEFT JOIN FETCH  a.user LEFT JOIN FETCH a.artist ORDER BY ";
 		
 		for (String field : orderBy) {
-			query += field + " ";
+			query += "a."+field + " ";
 		}
+		
 		query += order;
 
 		TypedQuery<Artwork> artworkQuery = em.createQuery(query, Artwork.class);
 		
 		if (page > 0) {
-			int offset = (page - 1) * items_per_page;
+			int offset = (page - 1) * per_page;
 			artworkQuery.setFirstResult(offset);
-			artworkQuery.setMaxResults(items_per_page);
+			artworkQuery.setMaxResults(per_page);
 		}
 		
 		final List<Artwork> artworks = artworkQuery.getResultList();
@@ -128,10 +130,10 @@ public class ArtworkEndpoint {
 		return Response.noContent().build();
 	}
 	
-	public List<ArtworkModel> findArtworksByUserId(Long uid) {
-		String query = "SELECT a FROM Artwork a where a.user.id = :uid";
+	public List<ArtworkModel> findArtworksByArtistId(Long aid) {
+		String query = "SELECT a FROM Artwork a where a.artist.id = :aid";
 		TypedQuery<Artwork> artworkQuery = em.createQuery(query, Artwork.class);
-		artworkQuery.setParameter("uid", uid);
+		artworkQuery.setParameter("aid", aid);
 		List<Artwork> artworks = artworkQuery.getResultList();
 		List<ArtworkModel> artworkModels = new LinkedList<ArtworkModel>();
 		for (Artwork artwork : artworks) {
@@ -208,5 +210,67 @@ public class ArtworkEndpoint {
 			artworkModel.importTax = lastestPurchase.getImportTax();
 		}
 		return artworkModel;
+	}
+	
+	private Artwork getArtworkFromArtworkModel(ArtworkModel artworkModel) {
+		Artwork artwork = new Artwork();
+		artwork.setUser(appService.findUserById(artworkModel.user));
+		artwork.setArtist(appService.findArtistById(artworkModel.artist));
+		artwork.setName(artworkModel.name);
+		artwork.setArtBookBio(artworkModel.artBookBio);
+		artwork.setOrigin(artworkModel.origin);
+		return artwork;
+//		origin = a.getOrigin();
+//		yearNote = a.getYearNote();
+//		medium = a.getMedium();
+//		conditionDescription = a.getConditionDescription();
+//		year = a.getYear();
+//		period = a.getPeriod();
+//		heightCm = (float) a.getHeight() / 100;
+//		widthCm = (float) a.getWidth() / 100;
+//		depthCm = (float) a.getDepth() / 100;
+//		heightInch = (float) a.getHeight() * cmToInc10k / 1000000;
+//		widthInch = (float) a.getWidth() * cmToInc10k / 1000000;
+//		depthInch = (float) a.getDepth() * cmToInc10k / 1000000;
+//		framedHeightCm = (float) a.getFramedHeight() / 100;
+//		framedWidthCm = (float) a.getFramedWidth() / 100;
+//		framedDepthCm = (float) a.getFramedDepth() / 100;
+//		framedHeightInch = (float) a.getFramedHeight() * cmToInc10k / 1000000;
+//		framedWidthInch = (float) a.getFramedWidth() * cmToInc10k / 1000000;
+//		framedDepthInch = (float) a.getFramedDepth() * cmToInc10k / 1000000;
+//		tagNumber = a.getTagNumber();
+//		signed = a.getSigned();
+//		editionNo = a.getEditionNo();
+//		
+//		externalLink = a.getExternalLink();
+//		
+//		Location location = a.getLocation();
+//		if (location != null) {
+//			locationId = location.getId();
+//		}
+//		
+//		importRestriction = a.getImportRestriction();
+//		
+//		exportRestriction = a.getExportRestriction();
+//		
+//		if (a.getCategory() != null) {
+//			category = a.getCategory().getId();
+//		}
+//		
+//		if (a.getUser() != null) {
+//			user = a.getUser().getId();
+//		}
+//		
+//		if (a.getArtist() != null) {
+//			artist = a.getArtist().getId();
+//		}
+//		
+//		for (Style c : a.getStyles()) {
+//			styles.add(c.getId());
+//		}
+//		
+//		for (Exhibition e : a.getExhibitions()) {
+//			exhibitions.add(e.getId());
+//		}
 	}
 }

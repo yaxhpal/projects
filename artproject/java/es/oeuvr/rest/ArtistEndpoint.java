@@ -86,6 +86,6 @@ public class ArtistEndpoint
 	@Path("/{id:[0-9][0-9]*}/artworks")
 	@Produces("application/json")
 	public List<ArtworkModel> listAllArtworks(@PathParam("id") Long id) {
-		return artworkService.findArtworksByUserId(id);
+		return artworkService.findArtworksByArtistId(id);
 	}
 }

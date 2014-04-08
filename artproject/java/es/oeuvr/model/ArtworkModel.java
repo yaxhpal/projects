@@ -64,6 +64,8 @@ public class ArtworkModel {
 	public List<CommentModel> comments = new LinkedList<CommentModel>();
 	public List<ProvenanceModel> provenances = new LinkedList<ProvenanceModel>();
 
+	public ArtworkModel() {}
+	
 	public ArtworkModel(Artwork a) {
 		id = a.getId();
 		name = a.getName();

@@ -26,6 +26,9 @@ import javax.validation.constraints.Digits;
 @XmlRootElement
 @Cacheable
 public class Artist implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", updatable = false, nullable = false)
