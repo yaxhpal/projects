@@ -1,0 +1,271 @@
+# Artist
+```
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| id          | bigint(20)   | NO   | PRI | NULL    |       |
+| about       | text         | YES  |     | NULL    |       |
+| birthPlace  | varchar(255) | YES  |     | NULL    |       |
+| firstName   | varchar(100) | NO   |     | NULL    |       |
+| lastName    | varchar(100) | NO   |     | NULL    |       |
+| version     | int(11)      | YES  |     | NULL    |       |
+| yearOfBirth | int(11)      | YES  |     | NULL    |       |
+| yearOfDeath | int(11)      | YES  |     | NULL    |       |
+| hasPhoto    | tinyint(1)   | YES  |     | 0       |       |
++-------------+--------------+------+-----+---------+-------+
+```
+
+# Artwork
+```
++----------------------+--------------+------+-----+---------+-------+
+| Field                | Type         | Null | Key | Default | Extra |
++----------------------+--------------+------+-----+---------+-------+
+| id                   | bigint(20)   | NO   | PRI | NULL    |       |
+| artBookBio           | text         | NO   |     | NULL    |       |
+| name                 | varchar(255) | NO   |     | NULL    |       |
+| version              | int(11)      | YES  |     | NULL    |       |
+| year                 | int(11)      | YES  |     | NULL    |       |
+| artist_id            | bigint(20)   | YES  | MUL | NULL    |       |
+| user_id              | bigint(20)   | YES  | MUL | NULL    |       |
+| yearNote             | varchar(255) | YES  |     | NULL    |       |
+| category_id          | int(11)      | YES  |     | NULL    |       |
+| depth                | int(11)      | NO   |     | 0       |       |
+| height               | int(11)      | NO   |     | 0       |       |
+| tagNumber            | varchar(255) | YES  |     | NULL    |       |
+| width                | int(11)      | NO   |     | 0       |       |
+| medium               | varchar(255) | YES  |     | NULL    |       |
+| location_id          | bigint(20)   | YES  | MUL | NULL    |       |
+| exportRestriction    | varchar(255) | YES  |     | NULL    |       |
+| importRestriction    | varchar(255) | YES  |     | NULL    |       |
+| origin               | varchar(255) | NO   |     | NULL    |       |
+| editionNo            | varchar(255) | YES  |     | NULL    |       |
+| framedDepth          | int(11)      | NO   |     | 0       |       |
+| framedHeight         | int(11)      | NO   |     | 0       |       |
+| framedWidth          | int(11)      | NO   |     | 0       |       |
+| signed               | varchar(255) | YES  |     | NULL    |       |
+| period               | varchar(255) | YES  |     | NULL    |       |
+| conditionDescription | varchar(255) | YES  |     | NULL    |       |
+| externalLink         | varchar(255) | YES  |     | NULL    |       |
++----------------------+--------------+------+-----+---------+-------+
+```
+
+
+# Category
+```
++-------------+---------------------+------+-----+---------+-------+
+| Field       | Type                | Null | Key | Default | Extra |
++-------------+---------------------+------+-----+---------+-------+
+| id          | bigint(19) unsigned | NO   | PRI | NULL    |       |
+| name        | varchar(64)         | YES  |     | NULL    |       |
+| description | varchar(256)        | YES  |     | NULL    |       |
+| cnd_group   | varchar(64)         | YES  |     | NULL    |       |
+| parent      | bigint(20)          | YES  |     | NULL    |       |
+| sequence    | int(11)             | YES  |     | NULL    |       |
+| status      | char(1)             | YES  |     | NULL    |       |
+| created     | int(11)             | YES  |     | NULL    |       |
+| updated     | int(11)             | YES  |     | NULL    |       |
++-------------+---------------------+------+-----+---------+-------+
+```
+
+
+# Comment
+```
++------------+---------------+------+-----+---------+-------+
+| Field      | Type          | Null | Key | Default | Extra |
++------------+---------------+------+-----+---------+-------+
+| id         | bigint(20)    | NO   | PRI | NULL    |       |
+| date       | datetime      | YES  |     | NULL    |       |
+| message    | varchar(1024) | YES  |     | NULL    |       |
+| version    | int(11)       | YES  |     | NULL    |       |
+| artwork_id | bigint(20)    | YES  | MUL | NULL    |       |
+| author_id  | bigint(20)    | YES  | MUL | NULL    |       |
++------------+---------------+------+-----+---------+-------+
+```
+
+
+# Document
+```
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | bigint(20)   | NO   | PRI | NULL    |       |
+| file       | varchar(255) | YES  |     | NULL    |       |
+| name       | varchar(255) | NO   |     | NULL    |       |
+| type       | varchar(255) | YES  |     | NULL    |       |
+| version    | int(11)      | YES  |     | NULL    |       |
+| artwork_id | bigint(20)   | YES  | MUL | NULL    |       |
+| user_id    | bigint(20)   | YES  | MUL | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+```
+
+# Exhibition
+```
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | bigint(20)   | NO   | PRI | NULL    |       |
+| date    | varchar(255) | NO   |     | NULL    |       |
+| name    | varchar(100) | NO   |     | NULL    |       |
+| version | int(11)      | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+```
+
+
+# Image
+```
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | bigint(20)   | NO   | PRI | NULL    |       |
+| name       | varchar(255) | NO   |     | NULL    |       |
+| version    | int(11)      | YES  |     | NULL    |       |
+| artwork_id | bigint(20)   | YES  | MUL | NULL    |       |
+| width      | int(11)      | YES  |     | NULL    |       |
+| height     | int(11)      | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+```
+
+# Location
+```
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| id       | bigint(20)   | NO   | PRI | NULL    |       |
+| location | varchar(255) | YES  |     | NULL    |       |
+| room     | varchar(255) | YES  |     | NULL    |       |
+| version  | int(11)      | YES  |     | NULL    |       |
+| owner_id | bigint(20)   | YES  | MUL | NULL    |       |
+| country  | varchar(255) | YES  |     | NULL    |       |
+| wall     | varchar(255) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+```
+
+# Movement
+```
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | bigint(20)   | NO   | PRI | NULL    |       |
+| name    | varchar(255) | NO   |     | NULL    |       |
+| version | int(11)      | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+```
+
+
+# Organisation
+```
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | bigint(20)   | NO   | PRI | NULL    |       |
+| name    | varchar(255) | NO   |     | NULL    |       |
+| type    | int(11)      | YES  |     | NULL    |       |
+| version | int(11)      | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+```
+
+# Provenance
+```
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | bigint(20)   | NO   | PRI | NULL    |       |
+| date       | varchar(255) | NO   |     | NULL    |       |
+| owner      | varchar(255) | NO   |     | NULL    |       |
+| version    | int(11)      | YES  |     | NULL    |       |
+| artwork_id | bigint(20)   | YES  | MUL | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+```
+
+# PurchaseHistory
+```
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| id            | bigint(20)   | NO   | PRI | NULL    |       |
+| commission    | varchar(255) | YES  |     | NULL    |       |
+| insurance     | varchar(255) | YES  |     | NULL    |       |
+| price         | varchar(255) | NO   |     | NULL    |       |
+| purchasedFrom | varchar(255) | YES  |     | NULL    |       |
+| source        | varchar(255) | YES  |     | NULL    |       |
+| valuation     | varchar(255) | YES  |     | NULL    |       |
+| valuationDate | varchar(255) | YES  |     | NULL    |       |
+| vat           | varchar(255) | YES  |     | NULL    |       |
+| version       | int(11)      | YES  |     | NULL    |       |
+| artwork_id    | bigint(20)   | YES  | MUL | NULL    |       |
+| owner_id      | bigint(20)   | YES  | MUL | NULL    |       |
+| artistRR      | varchar(255) | YES  |     | NULL    |       |
+| importTax     | varchar(255) | YES  |     | NULL    |       |
+| valuedBy      | varchar(255) | YES  |     | NULL    |       |
+| purchaseDate  | varchar(255) | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+```
+
+# Slideshow
+```
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | bigint(20)   | NO   | PRI | NULL    |       |
+| name    | varchar(255) | NO   |     | NULL    |       |
+| version | int(11)      | YES  |     | NULL    |       |
+| user_id | bigint(20)   | YES  | MUL | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+```
+
+# Style
+```
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | bigint(20)   | NO   | PRI | NULL    |       |
+| name    | varchar(255) | NO   |     | NULL    |       |
+| version | int(11)      | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+```
+
+# Tag
+```
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | bigint(20)   | NO   | PRI | NULL    |       |
+| name    | varchar(255) | NO   | UNI | NULL    |       |
+| version | int(11)      | YES  |     | NULL    |       |
+| user_id | bigint(20)   | YES  | MUL | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+```
+
+
+# Upload_Log
+```
++-------------+---------------------+------+-----+---------+----------------+
+| Field       | Type                | Null | Key | Default | Extra          |
++-------------+---------------------+------+-----+---------+----------------+
+| id          | bigint(20) unsigned | NO   | PRI | NULL    | auto_increment |
+| filename    | varchar(256)        | YES  |     | NULL    |                |
+| Failed      | text                | YES  |     | NULL    |                |
+| Comments    | varchar(256)        | YES  |     | NULL    |                |
+| upload_date | int(11)             | YES  |     | NULL    |                |
++-------------+---------------------+------+-----+---------+----------------+
+```
+
+# User
+```
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| id              | bigint(20)   | NO   | PRI | NULL    |       |
+| active          | tinyint(1)   | YES  |     | 0       |       |
+| dateOfBirth     | date         | YES  |     | NULL    |       |
+| email           | varchar(100) | NO   |     | NULL    |       |
+| firstName       | varchar(100) | NO   |     | NULL    |       |
+| lastName        | varchar(100) | NO   |     | NULL    |       |
+| password        | varchar(255) | YES  |     | NULL    |       |
+| permissions     | varchar(255) | YES  |     | NULL    |       |
+| securityCode    | varchar(255) | YES  |     | NULL    |       |
+| version         | int(11)      | YES  |     | NULL    |       |
+| organisation_id | bigint(20)   | YES  | MUL | NULL    |       |
+| sessionToken    | text         | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+```
