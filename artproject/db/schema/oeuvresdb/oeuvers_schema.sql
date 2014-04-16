@@ -32,6 +32,7 @@ CREATE TABLE `Artist` (
   `yearOfBirth` int(11) DEFAULT NULL,
   `yearOfDeath` int(11) DEFAULT NULL,
   `hasPhoto` tinyint(1) DEFAULT '0',
+  `externalLink` varchar(512) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -70,7 +71,7 @@ CREATE TABLE `Artwork` (
   `artist_id` bigint(20) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   `yearNote` varchar(255) DEFAULT NULL,
-  `category` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
   `depth` int(11) NOT NULL DEFAULT '0',
   `height` int(11) NOT NULL DEFAULT '0',
   `tagNumber` varchar(255) DEFAULT NULL,
@@ -87,6 +88,7 @@ CREATE TABLE `Artwork` (
   `signed` varchar(255) DEFAULT NULL,
   `period` varchar(255) DEFAULT NULL,
   `conditionDescription` varchar(255) DEFAULT NULL,
+  `externalLink` varchar(512) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK3797EFD4A98C6ED2` (`artist_id`),
   KEY `FK3797EFD4FD002E52` (`user_id`),
@@ -461,10 +463,10 @@ CREATE TABLE `Tag_Artwork` (
 -- Table structure for table `Upload_Log`
 --
 
-DROP TABLE IF EXISTS `Upload_Log`;
+DROP TABLE IF EXISTS `UploadLog`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Upload_Log` (
+CREATE TABLE `UploadLog` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
   `filename` varchar(256) DEFAULT NULL COMMENT 'Upload file name',
   `Failed` text COMMENT 'Filed Uploads',

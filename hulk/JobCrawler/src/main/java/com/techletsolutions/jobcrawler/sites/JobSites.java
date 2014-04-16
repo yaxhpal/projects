@@ -8,8 +8,7 @@ public class JobSites {
 
 	public JobSites() {
 		jobsites.add(new WebSite("INDEED.COM", "http://rss.indeed.com/rss?q=<CATEGORY>&sort=date"));
-		jobsites.add(new WebSite("SIMPLYHIRED.COM", "http://www.simplyhired.com/a/job-feed/rss/q-<CATEGORY>/fdb-1"));
-		jobsites.add(new WebSite("SIMPLYHIRED.COM", "http://www.simplyhired.com/a/job-feed/rss/q-<CATEGORY>/fdb-1"));
+		// jobsites.add(new WebSite("SIMPLYHIRED.COM", "http://www.simplyhired.com/a/job-feed/rss/q-<CATEGORY>/fdb-1"));
 	}
 	
 	public List<WebSite> getJobsites() {

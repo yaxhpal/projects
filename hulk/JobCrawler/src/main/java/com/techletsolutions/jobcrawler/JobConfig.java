@@ -27,7 +27,8 @@ public class JobConfig {
 		System.out.println("Entering into loadProperties");
 		InputStream input = null;
 		try {
-			String filename = "jobcrawler.properties";
+			// String filename = "jobcrawler.properties";
+			String filename = "jobcrawler.test.properties";
 			input = JobConfig.class.getClassLoader().getResourceAsStream(filename);
 			if(input==null){
 				logger.error("Unable to find property file: " + filename);

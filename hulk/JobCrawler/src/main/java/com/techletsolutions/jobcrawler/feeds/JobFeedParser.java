@@ -118,7 +118,7 @@ public class JobFeedParser {
 						jobItem.setTitle(title);
 						jobItem.setPubDate(pubdate);
 						jobItem.setCategory(category.toUpperCase());
-						setExtraDetails(jobItem);
+						//setExtraDetails(jobItem);
 						feed.getJobItems().add(jobItem);
 						event = eventReader.nextEvent();
 						continue;
@@ -149,7 +149,7 @@ public class JobFeedParser {
 		}
 	}
 	
-	private void setExtraDetails(JobItem jobItem) {
+	public void setExtraDetails(JobItem jobItem) {
 		logger.info("Getting extra details: Job title: {}",  jobItem.getTitle());
 		Document doc = null;
 		try {
