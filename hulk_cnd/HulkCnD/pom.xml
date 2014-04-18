@@ -6,6 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Hulk CnD Project</name>
 	<description>This is the project to read and insert data into 'cnd' table. Current data is related to zipcodes of various localities of different cities in the states of United States of America</description>
+	<url>https://github.com/yaxhpal/projects/hulk_cnd/HulkCnD</url>
 	<properties>
 		<base.dir>/home/yashpal/projects/hulk_cnd/HulkCnD</base.dir>
 	</properties>

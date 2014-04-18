@@ -83,7 +83,7 @@ public class EntityManager {
 		int result = 0;
 		try {
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select sequence from cnd order by id desc limit 1");
+			ResultSet rs = stmt.executeQuery("select sequence from cnd order by sequence desc limit 1");
 			if (rs.next()) {
 				result = rs.getInt(1);
 			}	

@@ -18,7 +18,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		String dataFile = HulkConfig.getProperty("hulk.app.datafilepath");
 		DataReader reader = new DataReader();
-		Country country = reader.readLargerTextFile(dataFile);
+		Country country = reader.parseCountryFromDataFile(dataFile);
 		if (country != null) {
 			EntityManager em = new EntityManager();
 			em.open();
