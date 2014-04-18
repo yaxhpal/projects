@@ -1,15 +1,11 @@
-package com.techletsolutions.jobcrawler;
+package com.techletsolutions.hulk.config;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-
-public class JobConfig {
-	private final static Logger logger = LoggerFactory.getLogger(JobConfig.class);
+public class HulkConfig {
 	private final static Properties prop = new Properties();
 
 	public static String getProperty(String key) {
@@ -27,11 +23,9 @@ public class JobConfig {
 		System.out.println("Entering into loadProperties");
 		InputStream input = null;
 		try {
-//			String filename = "jobcrawler.properties";
-			String filename = "jobcrawler.test.properties";
-			input = JobConfig.class.getClassLoader().getResourceAsStream(filename);
+			String filename = "hulkcnd.properties";
+			input = HulkConfig.class.getClassLoader().getResourceAsStream(filename);
 			if(input==null){
-				logger.error("Unable to find property file: " + filename);
 				return;
 			}
 			prop.load(input);

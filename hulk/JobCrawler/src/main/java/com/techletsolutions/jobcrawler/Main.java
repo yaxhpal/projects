@@ -20,13 +20,16 @@ public class Main {
 	final static DBAgent dbAgent = new DBAgent();
 
 	public static void main(String[] args) throws Exception {
-		// checks for the expected user input
+		logger.info("Starting Jobcrawler....");
+		System.out.println( JobConfig.getProperty("jobcrawler.database.url"));
+		
 		if(args.length == 0) {
 			usage(); // provides usage information to inform the user of the correct way to work
 		}
-		logger.info("Entering into main...");
+		dbAgent.open();
 		readAllFeeds();
-		logger.info("exiting from main...");
+		dbAgent.close();
+		logger.info("Jobcrawler finished surfing... Happy hapy joy joy!!!");
 	}
 
 	private static void usage() {
@@ -36,6 +39,7 @@ public class Main {
 	}
 
 	public static void readAllFeeds() {
+		
 		JobFeedParser parser = null;
 		JobFeed jobFeed = null;
 		List<String> categories = (new Categories()).getCategories();
@@ -49,6 +53,7 @@ public class Main {
 				}
 			}
 		}
+		
 	}
 }
 

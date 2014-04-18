@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>HulkCnD</groupId>
+	<artifactId>HulkCnD</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Hulk CnD Project</name>
+	<description>This is the project to read and insert data into 'cnd' table. Current data is related to zipcodes of various localities of different cities in the states of United States of America</description>
+	<properties>
+		<base.dir>/home/yashpal/projects/hulk_cnd/HulkCnD</base.dir>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.29</version>
+			<scope>system</scope>
+			<systemPath>${base.dir}/lib/mysql-connector-java-5.1.29-bin.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.7</version>
+			<scope>system</scope>
+			<systemPath>${base.dir}/lib/slf4j-api-1.7.7.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.12</version>
+			<scope>system</scope>
+			<systemPath>${base.dir}/lib/log4j-1.2.12.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.7</version>
+			<scope>system</scope>
+			<systemPath>${base.dir}/lib/slf4j-log4j12-1.7.7.jar</systemPath>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

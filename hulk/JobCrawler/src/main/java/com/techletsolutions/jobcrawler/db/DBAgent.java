@@ -18,7 +18,7 @@ import com.techletsolutions.jobcrawler.JobConfig;
 import com.techletsolutions.jobcrawler.feeds.JobItem;
 
 public class DBAgent {
-	
+
 	private final static Logger logger = LoggerFactory.getLogger(DBAgent.class);
 	final static String DB_URL = JobConfig.getProperty("jobcrawler.database.url");
 	final static String USER   = JobConfig.getProperty("jobcrawler.database.username");
@@ -30,6 +30,10 @@ public class DBAgent {
 
 
 	public DBAgent() {
+
+	}
+
+	public void open(){
 		try {
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			String sql = JobConfig.getProperty("jobcrawler.database.jobfeedquery");
@@ -115,7 +119,7 @@ public class DBAgent {
 		return jobId;
 	}
 
-	public static void close() throws SQLException {
+	public void close() {
 		try {
 			preparedStatementFeeds.close();
 		} catch (Exception e) {
@@ -127,7 +131,7 @@ public class DBAgent {
 		} catch (Exception e) {
 			logger.error("Error while closing Job's prepared statement.", e);
 		}
-		
+
 		try {
 			updateJobFeedPreparedStmt.close();
 		} catch (Exception e) {

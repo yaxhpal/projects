@@ -49,6 +49,13 @@
 			<scope>system</scope>
 			<systemPath>${base.dir}/lib/log4j-1.2.12.jar</systemPath>
 		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.7</version>
+			<scope>system</scope>
+			<systemPath>${base.dir}/lib/slf4j-log4j12-1.7.7.jar</systemPath>
+		</dependency>
 	</dependencies>
 	<properties>
 		<base.dir>/home/yashpal/projects/hulk/JobCrawler</base.dir>
