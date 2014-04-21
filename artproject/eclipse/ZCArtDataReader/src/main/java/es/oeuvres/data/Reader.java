@@ -19,9 +19,11 @@ import es.oeuvres.model.ArtInfo;
 import es.oeuvres.model.Artist;
 import es.oeuvres.model.Artwork;
 import es.oeuvres.model.Category;
+import es.oeuvres.model.Location;
 import es.oeuvres.model.Movement;
 import es.oeuvres.model.PurchaseInfo;
 import es.oeuvres.model.Style;
+import es.oeuvres.model.Tag;
 
 public class Reader {
 
@@ -36,14 +38,14 @@ public class Reader {
 		initializeMap();
 	}
 
-	public static void main(String[] args) {
-		Reader reader = new Reader();
-		List<ArtInfo>  list = reader.ReadIt();
+//	public static void main(String[] args) {
+//		Reader reader = new Reader();
+//		List<ArtInfo>  list = reader.ReadIt();
+//
+//		System.out.println(list.size());
+//	}
 
-		System.out.println(list.size());
-	}
-
-	public List<ArtInfo> ReadIt() {
+	public List<ArtInfo> readData() {
 		List<ArtInfo> artInfoList = new ArrayList<ArtInfo>();
 		try {
 			HSSFWorkbook wb = Reader.readFile(dataFile);		
@@ -56,41 +58,44 @@ public class Reader {
 
 						ArtInfo artInfo = new ArtInfo();
 
-
 						Artist artist = readArtist(row);
-
 						if (artist != null) {
 							artInfo.setArtist(artist);
 						}
 
 						Artwork artwork = readArtwork(row);
-
 						if (artwork != null) {
 							artInfo.setArtwork(artwork);
 						}
 
 						Movement movement = readMovement(row);
-
 						if (movement != null) {
 							artInfo.setMovement(movement);
 						}
 
 						PurchaseInfo purchaseInfo = readPurchaseInfo(row);
-
 						if (purchaseInfo != null) {
 							artInfo.setPurchaseInfo(purchaseInfo);
 						}
 
 						Style style = readStyle(row);
-
 						if (style != null) {
 							artInfo.setStyle(style);
 						}
 
 						Category category = readCategory(row);
-
-						if (style != null) {
+						if (category != null) {
 							artInfo.setCategory(category);
+						}
+
+						Location location = readLocation(row);
+						if (location != null) {
+							artInfo.setLocation(location);
+						}
+
+						Tag tag = readTag(row);
+						if (tag != null) {
+							artInfo.setTag(tag);
 						}
 
 						artInfoList.add(artInfo);
@@ -182,8 +187,8 @@ public class Reader {
 	private Category readCategory(HSSFRow row) throws IllegalArgumentException, IllegalAccessException {
 		Category category = new Category();
 		boolean flag = false;
-		Field[] styleFields = Category.class.getDeclaredFields();
-		for (Field field : styleFields) {
+		Field[] categoryFields = Category.class.getDeclaredFields();
+		for (Field field : categoryFields) {
 			String fieldName = field.getName();
 			HSSFCell cell = row.getCell(map.get(fieldName));
 			if (cell != null) {
@@ -193,7 +198,37 @@ public class Reader {
 		}
 		return flag?category:null;
 	}
+	
+	private Location readLocation(HSSFRow row) throws IllegalArgumentException, IllegalAccessException {
+		Location location = new Location();
+		boolean flag = false;
+		Field[] locationFields = Location.class.getDeclaredFields();
+		for (Field field : locationFields) {
+			String fieldName = field.getName();
+			HSSFCell cell = row.getCell(map.get(fieldName));
+			if (cell != null) {
+				flag = true;
+				field.set(location, cell.toString().trim());
+			}
+		}
+		return flag?location:null;
+	}
 
+	private Tag readTag(HSSFRow row) throws IllegalArgumentException, IllegalAccessException {
+		Tag tag = new Tag();
+		boolean flag = false;
+		Field[] tagFields = Tag.class.getDeclaredFields();
+		for (Field field : tagFields) {
+			String fieldName = field.getName();
+			HSSFCell cell = row.getCell(map.get(fieldName));
+			if (cell != null) {
+				flag = true;
+				field.set(tag, cell.toString().trim());
+			}
+		}
+		return flag?tag:null;
+	}
+	
 	/**
 	 * creates an {@link HSSFWorkbook} the specified OS filename.
 	 */
@@ -232,7 +267,7 @@ public class Reader {
 		 map.put("medium", 27);
 		 map.put("signed", 28);
 		 map.put("location", 29);
-		 map.put("country", 30);
+		 map.put("locationCountry", 30); // Original country
 		 map.put("room", 31);
 		 map.put("wall", 32);
 		 map.put("conditionDescription", 33);
@@ -240,7 +275,7 @@ public class Reader {
 		 map.put("exportRestriction", 35);
 		 map.put("importRestriction", 36);
 		 map.put("origin", 37);
-		 map.put("tagNo", 38);
+		 map.put("tagName", 38); // Original tagNo
 		 map.put("commission", 39);
 		 map.put("purchaseDate", 40);
 		 map.put("insurance", 41);

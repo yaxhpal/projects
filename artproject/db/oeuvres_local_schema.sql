@@ -299,18 +299,6 @@ CREATE TABLE `Artwork_Category` (
   `categories_id` bigint(20) unsigned DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Mapping among artworks and categories.';
 
-
---
--- Table structure for table `Artwork_Exhibition`
---
-DROP TABLE IF EXISTS `Artwork_Exhibition`;
-CREATE TABLE `Artwork_Exhibition` (
-  `artwork_id` bigint(20) unsigned NOT NULL,
-  `exhibitions_id` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`artwork_id`,`exhibitions_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Mapping between artworks and exhibitions.';
-
-
 --
 -- Table structure for table `Artwork_Movement`
 --
@@ -331,17 +319,6 @@ CREATE TABLE `Artwork_Style` (
   PRIMARY KEY (`artwork_id`,`styles_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Mapping between artworks and styles.';
 
-
---
--- Table structure for table `Slideshow_Artwork`
---
-DROP TABLE IF EXISTS `Artwork_Slideshow`;
-CREATE TABLE `Artwork_Slideshow` (
-  `artworks_id` bigint(20) unsigned NOT NULL,
-  `slideshow_id` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`Slideshow_id`,`artworks_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Mapping between artworks and slideshows.';
-
 --
 -- Table structure for table `Tag_Artwork`
 --
@@ -352,6 +329,27 @@ CREATE TABLE `Artwork_Tag` (
   PRIMARY KEY (`Tag_id`,`artworks_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `Artwork_Exhibition`
+--
+DROP TABLE IF EXISTS `Artwork_Exhibition`;
+CREATE TABLE `Artwork_Exhibition` (
+  `artwork_id` bigint(20) unsigned NOT NULL,
+  `exhibitions_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`artwork_id`,`exhibitions_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Mapping between artworks and exhibitions.';
+
+
+--
+-- Table structure for table `Slideshow_Artwork`
+--
+DROP TABLE IF EXISTS `Artwork_Slideshow`;
+CREATE TABLE `Artwork_Slideshow` (
+  `artworks_id` bigint(20) unsigned NOT NULL,
+  `slideshow_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`Slideshow_id`,`artworks_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Mapping between artworks and slideshows.';
 
 --
 -- Table structure for table `Upload_Log`

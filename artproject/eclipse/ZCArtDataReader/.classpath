@@ -6,6 +6,7 @@
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.7.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-1.2.12.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-log4j12-1.7.7.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.29-bin.jar"/>
 	<classpathentry excluding="**" kind="src" path="src/main/resources"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

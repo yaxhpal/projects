@@ -8,6 +8,8 @@ public class ArtInfo {
 	private Movement movement;
 	private Style style;
 	private Category category;
+	private Location location;
+	private Tag tag;
 	
 	public Artist getArtist() {
 		return artist;
@@ -44,5 +46,17 @@ public class ArtInfo {
 	}
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	public Location getLocation() {
+		return location;
+	}
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+	public Tag getTag() {
+		return tag;
+	}
+	public void setTag(Tag tag) {
+		this.tag = tag;
 	}
 }
