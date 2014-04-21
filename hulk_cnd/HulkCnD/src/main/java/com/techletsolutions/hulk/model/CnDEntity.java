@@ -174,17 +174,17 @@ public class CnDEntity implements Comparable<Object> {
 	@Override
 	public int compareTo(Object o) {
 		CnDEntity entity = (CnDEntity)o;
-		
+			
 		if (this.id == null || entity.getId() == null) {
 			return -1;
 		}
 		
-		if (id < entity.getId()) {
-			return -1;
-		} else if (id > entity.getId()){
-			return 1;
-		}
-		return 0;
+		int res = String.CASE_INSENSITIVE_ORDER.compare(name, entity.name);
+        if (res == 0) {
+            res = name.compareTo(entity.name);
+        }
+        
+        return res;
 	}
 	
 	@Override

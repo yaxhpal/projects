@@ -46,7 +46,8 @@ public class EntityManager {
 			preparedStatementCnD.setString(2, entity.getDescription());
 			preparedStatementCnD.setString(3, entity.getGroup_name());
 			preparedStatementCnD.setLong(4, entity.getParent());
-			preparedStatementCnD.setInt(5, (sequence>0?sequence++:sequence));
+//			preparedStatementCnD.setInt(5, (sequence>0?sequence++:sequence));
+			preparedStatementCnD.setInt(5, sequence++);
 			preparedStatementCnD.setString(6, entity.getOption1());
 			preparedStatementCnD.setString(7, entity.getOption2());
 			preparedStatementCnD.setString(8, entity.getDeleted()+"");
@@ -83,7 +84,7 @@ public class EntityManager {
 		int result = 0;
 		try {
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select sequence from cnd order by sequence desc limit 1");
+			ResultSet rs = stmt.executeQuery("select sequence from cndtest order by sequence desc limit 1");
 			if (rs.next()) {
 				result = rs.getInt(1);
 			}	

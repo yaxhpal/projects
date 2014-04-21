@@ -10,6 +10,7 @@ public class City extends CnDEntity {
 	protected Set<ZipCode> zipcodes;
 	
 	public City (String name, Long parent) {
+		this.id = 0L;
 		this.group_name = "City";
 		this.name = name;
 		this.description = name;

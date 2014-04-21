@@ -3,6 +3,7 @@ package com.techletsolutions.hulk.model;
 public class ZipCode extends CnDEntity {
 
 	public ZipCode (String name, Long parent) {
+		this.id = 0L;
 		this.group_name = "Zipcode";
 		this.name = name;
 		this.description = name;

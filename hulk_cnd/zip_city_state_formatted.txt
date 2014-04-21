@@ -40950,7 +40950,6 @@ West Virginia,Swiss,26690
 West Virginia,Switchback,24887
 West Virginia,Switzer,25647
 West Virginia,Sylvester,25193
-West Virginia,TRUE,25988
 West Virginia,Tad,25201
 West Virginia,Talcott,24981
 West Virginia,Tallmansville,26237
@@ -40967,6 +40966,7 @@ West Virginia,Tioga,26691
 West Virginia,Tornado,25202
 West Virginia,Triadelphia,26059
 West Virginia,Troy,26443
+West Virginia,TRUE,25988
 West Virginia,Tunnelton,26444
 West Virginia,Turtle Creek,25203
 West Virginia,Twilight,25204

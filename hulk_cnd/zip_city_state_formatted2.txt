@@ -1,0 +1,847 @@
+Alabama,Abbeville,36310
+Alabama,Abernant,35440
+Alabama,Adamsville,35005
+Alabama,Addison,35540
+Alabama,Adger,35006
+Alabama,Akron,35441
+Alabama,Alabaster,35007
+Alabama,Alberta,36720
+Alabama,Albertville,35950
+Alabama,Albertville,35951
+Alabama,Alexander City,35010
+Alabama,Alexander City,35011
+Alabama,Alexandria,36250
+Alabama,Aliceville,35442
+Alabama,Allgood,35013
+Alabama,Alma,36501
+Alabama,Alpine,35014
+Alabama,Alton,35015
+Alabama,Altoona,35952
+Alabama,Andalusia,36420
+Alabama,Anderson,35610
+Alabama,Annemanie,36721
+Alabama,Anniston,36201
+Alabama,Anniston,36202
+Alabama,Anniston,36203
+Alabama,Anniston,36204
+Alabama,Anniston,36205
+Alabama,Anniston,36206
+Alabama,Anniston,36207
+Alabama,Arab,35016
+Alabama,Ardmore,35739
+Alabama,Ariton,36311
+Alabama,Arley,35541
+Alabama,Arlington,36722
+Alabama,Ashford,36312
+Alabama,Ashland,36251
+Alabama,Ashville,35953
+Alabama,Athens,35611
+Alabama,Athens,35612
+Alabama,Athens,35613
+Alabama,Athens,35614
+Alabama,Atmore,36502
+Alabama,Atmore,36503
+Alabama,Atmore,36504
+Alabama,Attalla,35954
+Alabama,Auburn University,36849
+Alabama,Auburn,36830
+Alabama,Auburn,36831
+Alabama,Auburn,36832
+Alabama,Autaugaville,36003
+Alabama,Axis,36505
+Alabama,Baileyton,35019
+Alabama,Banks,36005
+Alabama,Bankston,35542
+Alabama,Bay Minette,36507
+Alabama,Bayou La Batre,36509
+Alabama,Bear Creek,35543
+Alabama,Beatrice,36425
+Alabama,Beaverton,35544
+Alabama,Belk,35545
+Alabama,Bellamy,36901
+Alabama,Belle Mina,35615
+Alabama,Bellwood,36313
+Alabama,Berry,35546
+Alabama,Bessemer,35020
+Alabama,Bessemer,35021
+Alabama,Bessemer,35022
+Alabama,Bessemer,35023
+Alabama,Billingsley,36006
+Alabama,Birmingham,35201
+Alabama,Birmingham,35202
+Alabama,Birmingham,35203
+Alabama,Birmingham,35204
+Alabama,Birmingham,35205
+Alabama,Birmingham,35206
+Alabama,Birmingham,35207
+Alabama,Birmingham,35208
+Alabama,Birmingham,35209
+Alabama,Birmingham,35210
+Alabama,Birmingham,35211
+Alabama,Birmingham,35212
+Alabama,Birmingham,35213
+Alabama,Birmingham,35214
+Alabama,Birmingham,35215
+Alabama,Birmingham,35216
+Alabama,Birmingham,35217
+Alabama,Birmingham,35218
+Alabama,Birmingham,35219
+Alabama,Birmingham,35220
+Alabama,Birmingham,35221
+Alabama,Birmingham,35222
+Alabama,Birmingham,35223
+Alabama,Birmingham,35224
+Alabama,Birmingham,35225
+Alabama,Birmingham,35226
+Alabama,Birmingham,35228
+Alabama,Birmingham,35229
+Alabama,Birmingham,35230
+Alabama,Birmingham,35231
+Alabama,Birmingham,35232
+Alabama,Birmingham,35233
+Alabama,Birmingham,35234
+Alabama,Birmingham,35235
+Alabama,Birmingham,35236
+Alabama,Birmingham,35237
+Alabama,Birmingham,35238
+Alabama,Birmingham,35240
+Alabama,Birmingham,35242
+Alabama,Birmingham,35243
+Alabama,Birmingham,35244
+Alabama,Birmingham,35245
+Alabama,Birmingham,35246
+Alabama,Birmingham,35249
+Alabama,Birmingham,35253
+Alabama,Birmingham,35254
+Alabama,Birmingham,35255
+Alabama,Birmingham,35259
+Alabama,Birmingham,35260
+Alabama,Birmingham,35261
+Alabama,Birmingham,35263
+Alabama,Birmingham,35266
+Alabama,Birmingham,35277
+Alabama,Birmingham,35278
+Alabama,Birmingham,35279
+Alabama,Birmingham,35280
+Alabama,Birmingham,35281
+Alabama,Birmingham,35282
+Alabama,Birmingham,35283
+Alabama,Birmingham,35285
+Alabama,Birmingham,35286
+Alabama,Birmingham,35287
+Alabama,Birmingham,35288
+Alabama,Birmingham,35289
+Alabama,Birmingham,35290
+Alabama,Birmingham,35291
+Alabama,Birmingham,35292
+Alabama,Birmingham,35293
+Alabama,Birmingham,35294
+Alabama,Birmingham,35295
+Alabama,Birmingham,35296
+Alabama,Birmingham,35297
+Alabama,Birmingham,35298
+Alabama,Birmingham,35299
+Alabama,Black,36314
+Alabama,Blountsville,35031
+Alabama,Boaz,35956
+Alabama,Boaz,35957
+Alabama,Boligee,35443
+Alabama,Bon Air,35032
+Alabama,Bon Secour,36511
+Alabama,Booth,36008
+Alabama,Boykin,36723
+Alabama,Brantley,36009
+Alabama,Bremen,35033
+Alabama,Brent,35034
+Alabama,Brewton,36426
+Alabama,Brewton,36427
+Alabama,Bridgeport,35740
+Alabama,Brierfield,35035
+Alabama,Brilliant,35548
+Alabama,Brooklyn,36429
+Alabama,Brookside,35036
+Alabama,Brookwood,35444
+Alabama,Brownsboro,35741
+Alabama,Brundidge,36010
+Alabama,Bryant,35958
+Alabama,Bucks,36512
+Alabama,Buhl,35446
+Alabama,Burnt Corn,36431
+Alabama,Burnwell,35038
+Alabama,Butler,36904
+Alabama,Bynum,36253
+Alabama,Calera,35040
+Alabama,Calvert,36513
+Alabama,Camden,36726
+Alabama,Camp Hill,36850
+Alabama,Campbell,36727
+Alabama,Capshaw,35742
+Alabama,Carbon Hill,35549
+Alabama,Cardiff,35041
+Alabama,Carlton,36515
+Alabama,Carrollton,35447
+Alabama,Castleberry,36432
+Alabama,Catherine,36728
+Alabama,Cecil,36013
+Alabama,Cedar Bluff,35959
+Alabama,Centre,35960
+Alabama,Centreville,35042
+Alabama,Chancellor,36316
+Alabama,Chapman,36015
+Alabama,Chatom,36518
+Alabama,Chelsea,35043
+Alabama,Cherokee,35616
+Alabama,Childersburg,35044
+Alabama,Choccolocco,36254
+Alabama,Chunchula,36521
+Alabama,Citronelle,36522
+Alabama,Clanton,35045
+Alabama,Clanton,35046
+Alabama,Clay,35048
+Alabama,Clayton,36016
+Alabama,Cleveland,35049
+Alabama,Clinton,35448
+Alabama,Clio,36017
+Alabama,Clopton,36317
+Alabama,Cloverdale,35617
+Alabama,Coaling,35449
+Alabama,Coden,36523
+Alabama,Coffee Springs,36318
+Alabama,Coffeeville,36524
+Alabama,Coker,35452
+Alabama,Collinsville,35961
+Alabama,Columbia,36319
+Alabama,Columbiana,35051
+Alabama,Cook Springs,35052
+Alabama,Coosada,36020
+Alabama,Cordova,35550
+Alabama,Cottondale,35453
+Alabama,Cottonton,36851
+Alabama,Cottonwood,36320
+Alabama,Courtland,35618
+Alabama,Cowarts,36321
+Alabama,Coy,36435
+Alabama,Cragford,36255
+Alabama,Crane Hill,35053
+Alabama,Creola,36525
+Alabama,Cromwell,36906
+Alabama,Cropwell,35054
+Alabama,Crossville,35962
+Alabama,Cuba,36907
+Alabama,Cullman,35055
+Alabama,Cullman,35056
+Alabama,Cullman,35057
+Alabama,Cullman,35058
+Alabama,Cusseta,36852
+Alabama,Dadeville,36853
+Alabama,Daleville,36322
+Alabama,Danville,35619
+Alabama,Daphne,36526
+Alabama,Dauphin Island,36528
+Alabama,Daviston,36256
+Alabama,Dawson,35963
+Alabama,De Armanville,36257
+Alabama,Deatsville,36022
+Alabama,Decatur,35601
+Alabama,Decatur,35602
+Alabama,Decatur,35603
+Alabama,Decatur,35609
+Alabama,Decatur,35699
+Alabama,Deer Park,36529
+Alabama,Delmar,35551
+Alabama,Delta,36258
+Alabama,Demopolis,36732
+Alabama,Detroit,35552
+Alabama,Dickinson,36436
+Alabama,Dixons Mills,36736
+Alabama,Docena,35060
+Alabama,Dolomite,35061
+Alabama,Dora,35062
+Alabama,Dothan,36301
+Alabama,Dothan,36302
+Alabama,Dothan,36303
+Alabama,Dothan,36304
+Alabama,Dothan,36305
+Alabama,Double Springs,35553
+Alabama,Douglas,35964
+Alabama,Dozier,36028
+Alabama,Duncanville,35456
+Alabama,Dutton,35744
+Alabama,East Tallassee,36023
+Alabama,Eastaboga,36260
+Alabama,Echola,35457
+Alabama,Eclectic,36024
+Alabama,Edwardsville,36261
+Alabama,Eight Mile,36613
+Alabama,Elba,36323
+Alabama,Elberta,36530
+Alabama,Eldridge,35554
+Alabama,Elkmont,35620
+Alabama,Elmore,36025
+Alabama,Elrod,35458
+Alabama,Emelle,35459
+Alabama,Empire,35063
+Alabama,Enterprise,36330
+Alabama,Enterprise,36331
+Alabama,Epes,35460
+Alabama,Equality,36026
+Alabama,Estillfork,35745
+Alabama,Ethelsville,35461
+Alabama,Eufaula,36027
+Alabama,Eufaula,36072
+Alabama,Eutaw,35462
+Alabama,Eva,35621
+Alabama,Evergreen,36401
+Alabama,Excel,36439
+Alabama,Fackler,35746
+Alabama,Fairfield,35064
+Alabama,Fairhope,36532
+Alabama,Fairhope,36533
+Alabama,Falkville,35622
+Alabama,Faunsdale,36738
+Alabama,Fayette,35555
+Alabama,Fitzpatrick,36029
+Alabama,Five Points,36855
+Alabama,Flat Rock,35966
+Alabama,Flomaton,36441
+Alabama,Florala,36442
+Alabama,Florence,35630
+Alabama,Florence,35631
+Alabama,Florence,35632
+Alabama,Florence,35633
+Alabama,Florence,35634
+Alabama,Foley,36535
+Alabama,Foley,36536
+Alabama,Forest Home,36030
+Alabama,Forkland,36740
+Alabama,Fort Davis,36031
+Alabama,Fort Deposit,36032
+Alabama,Fort Mitchell,36856
+Alabama,Fort Payne,35967
+Alabama,Fort Payne,35968
+Alabama,Fort Rucker,36362
+Alabama,Fosters,35463
+Alabama,Franklin,36444
+Alabama,Frankville,36538
+Alabama,Frisco City,36445
+Alabama,Fruitdale,36539
+Alabama,Fruithurst,36262
+Alabama,Fulton,36446
+Alabama,Fultondale,35068
+Alabama,Furman,36741
+Alabama,Fyffe,35971
+Alabama,Gadsden,35901
+Alabama,Gadsden,35902
+Alabama,Gadsden,35903
+Alabama,Gadsden,35904
+Alabama,Gadsden,35905
+Alabama,Gadsden,35907
+Alabama,Gainestown,36540
+Alabama,Gainesville,35464
+Alabama,Gallant,35972
+Alabama,Gallion,36742
+Alabama,Gantt,36038
+Alabama,Garden City,35070
+Alabama,Gardendale,35071
+Alabama,Gaylesville,35973
+Alabama,Geneva,36340
+Alabama,Georgiana,36033
+Alabama,Geraldine,35974
+Alabama,Gilbertown,36908
+Alabama,Glen Allen,35559
+Alabama,Glenwood,36034
+Alabama,Goodsprings,35560
+Alabama,Goodwater,35072
+Alabama,Goodway,36449
+Alabama,Gordo,35466
+Alabama,Gordon,36343
+Alabama,Goshen,36035
+Alabama,Grady,36036
+Alabama,Graham,36263
+Alabama,Grand Bay,36541
+Alabama,Grant,35747
+Alabama,Graysville,35073
+Alabama,Green Pond,35074
+Alabama,Greensboro,36744
+Alabama,Greenville,36037
+Alabama,Grove Hill,36451
+Alabama,Groveoak,35975
+Alabama,Guin,35563
+Alabama,Gulf Shores,36542
+Alabama,Gulf Shores,36547
+Alabama,Guntersville,35976
+Alabama,Gurley,35748
+Alabama,Hackleburg,35564
+Alabama,Haleyville,35565
+Alabama,Hamilton,35570
+Alabama,Hanceville,35077
+Alabama,Hardaway,36039
+Alabama,Harpersville,35078
+Alabama,Hartford,36344
+Alabama,Hartselle,35640
+Alabama,Harvest,35749
+Alabama,Hatchechubbee,36858
+Alabama,Hayden,35079
+Alabama,Hayneville,36040
+Alabama,Hazel Green,35750
+Alabama,Headland,36345
+Alabama,Heflin,36264
+Alabama,Helena,35080
+Alabama,Henagar,35978
+Alabama,Higdon,35979
+Alabama,Highland Home,36041
+Alabama,Hillsboro,35643
+Alabama,Hodges,35571
+Alabama,Hollins,35082
+Alabama,Holly Pond,35083
+Alabama,Hollytree,35751
+Alabama,Hollywood,35752
+Alabama,Holy Trinity,36859
+Alabama,Honoraville,36042
+Alabama,Hope Hull,36043
+Alabama,Horton,35980
+Alabama,Houston,35572
+Alabama,Huntsville,35801
+Alabama,Huntsville,35802
+Alabama,Huntsville,35803
+Alabama,Huntsville,35804
+Alabama,Huntsville,35805
+Alabama,Huntsville,35806
+Alabama,Huntsville,35807
+Alabama,Huntsville,35808
+Alabama,Huntsville,35809
+Alabama,Huntsville,35810
+Alabama,Huntsville,35811
+Alabama,Huntsville,35812
+Alabama,Huntsville,35813
+Alabama,Huntsville,35814
+Alabama,Huntsville,35815
+Alabama,Huntsville,35816
+Alabama,Huntsville,35824
+Alabama,Huntsville,35893
+Alabama,Huntsville,35894
+Alabama,Huntsville,35895
+Alabama,Huntsville,35896
+Alabama,Huntsville,35897
+Alabama,Huntsville,35898
+Alabama,Huntsville,35899
+Alabama,Hurtsboro,36860
+Alabama,Huxford,36543
+Alabama,Ider,35981
+Alabama,Irvington,36544
+Alabama,Jachin,36910
+Alabama,Jack,36346
+Alabama,Jackson,36545
+Alabama,Jacksons Gap,36861
+Alabama,Jacksonville,36265
+Alabama,Jasper,35501
+Alabama,Jasper,35502
+Alabama,Jasper,35503
+Alabama,Jasper,35504
+Alabama,Jefferson,36745
+Alabama,Jemison,35085
+Alabama,Jones,36749
+Alabama,Joppa,35087
+Alabama,Kansas,35573
+Alabama,Kellerman,35468
+Alabama,Kellyton,35089
+Alabama,Kennedy,35574
+Alabama,Kent,36045
+Alabama,Killen,35645
+Alabama,Kimberly,35091
+Alabama,Kinston,36453
+Alabama,Knoxville,35469
+Alabama,Laceys Spring,35754
+Alabama,Lafayette,36862
+Alabama,Lanett,36863
+Alabama,Langston,35755
+Alabama,Lapine,36046
+Alabama,Lawley,36793
+Alabama,Leeds,35094
+Alabama,Leesburg,35983
+Alabama,Leighton,35646
+Alabama,Lenox,36454
+Alabama,Leroy,36548
+Alabama,Lester,35647
+Alabama,Letohatchee,36047
+Alabama,Lexington,35648
+Alabama,Lillian,36549
+Alabama,Lincoln,35096
+Alabama,Linden,36748
+Alabama,Lineville,36266
+Alabama,Lisman,36912
+Alabama,Little River,36550
+Alabama,Livingston,35470
+Alabama,Loachapoka,36865
+Alabama,Lockhart,36455
+Alabama,Locust Fork,35097
+Alabama,Logan,35098
+Alabama,Louisville,36048
+Alabama,Lower Peach Tree,36751
+Alabama,Lowndesboro,36752
+Alabama,Loxley,36551
+Alabama,Luverne,36049
+Alabama,Lynn,35575
+Alabama,Madison,35756
+Alabama,Madison,35757
+Alabama,Madison,35758
+Alabama,Magnolia Springs,36555
+Alabama,Magnolia,36754
+Alabama,Malcolm,36556
+Alabama,Malvern,36349
+Alabama,Maplesville,36750
+Alabama,Marbury,36051
+Alabama,Margaret,35112
+Alabama,Marion Junction,36759
+Alabama,Marion,36756
+Alabama,Mathews,36052
+Alabama,Maylene,35114
+Alabama,Mc Calla,35111
+Alabama,Mc Intosh,36553
+Alabama,Mc Kenzie,36456
+Alabama,Mc Shan,35471
+Alabama,Mc Williams,36753
+Alabama,Megargel,36457
+Alabama,Melvin,36913
+Alabama,Mentone,35984
+Alabama,Meridianville,35759
+Alabama,Mexia,36458
+Alabama,Midland City,36350
+Alabama,Midway,36053
+Alabama,Millbrook,36054
+Alabama,Millerville,36267
+Alabama,Millport,35576
+Alabama,Millry,36558
+Alabama,Minter,36761
+Alabama,Mobile,36601
+Alabama,Mobile,36602
+Alabama,Mobile,36603
+Alabama,Mobile,36604
+Alabama,Mobile,36605
+Alabama,Mobile,36606
+Alabama,Mobile,36607
+Alabama,Mobile,36608
+Alabama,Mobile,36609
+Alabama,Mobile,36610
+Alabama,Mobile,36611
+Alabama,Mobile,36612
+Alabama,Mobile,36614
+Alabama,Mobile,36615
+Alabama,Mobile,36616
+Alabama,Mobile,36617
+Alabama,Mobile,36618
+Alabama,Mobile,36619
+Alabama,Mobile,36621
+Alabama,Mobile,36622
+Alabama,Mobile,36623
+Alabama,Mobile,36625
+Alabama,Mobile,36626
+Alabama,Mobile,36628
+Alabama,Mobile,36630
+Alabama,Mobile,36631
+Alabama,Mobile,36633
+Alabama,Mobile,36640
+Alabama,Mobile,36641
+Alabama,Mobile,36644
+Alabama,Mobile,36652
+Alabama,Mobile,36660
+Alabama,Mobile,36663
+Alabama,Mobile,36670
+Alabama,Mobile,36671
+Alabama,Mobile,36675
+Alabama,Mobile,36685
+Alabama,Mobile,36688
+Alabama,Mobile,36689
+Alabama,Mobile,36690
+Alabama,Mobile,36691
+Alabama,Mobile,36693
+Alabama,Mobile,36695
+Alabama,Monroeville,36460
+Alabama,Monroeville,36461
+Alabama,Monroeville,36462
+Alabama,Montevallo,35115
+Alabama,Montgomery,36101
+Alabama,Montgomery,36102
+Alabama,Montgomery,36103
+Alabama,Montgomery,36104
+Alabama,Montgomery,36105
+Alabama,Montgomery,36106
+Alabama,Montgomery,36107
+Alabama,Montgomery,36108
+Alabama,Montgomery,36109
+Alabama,Montgomery,36110
+Alabama,Montgomery,36111
+Alabama,Montgomery,36112
+Alabama,Montgomery,36113
+Alabama,Montgomery,36114
+Alabama,Montgomery,36115
+Alabama,Montgomery,36116
+Alabama,Montgomery,36117
+Alabama,Montgomery,36118
+Alabama,Montgomery,36119
+Alabama,Montgomery,36120
+Alabama,Montgomery,36121
+Alabama,Montgomery,36123
+Alabama,Montgomery,36124
+Alabama,Montgomery,36125
+Alabama,Montgomery,36130
+Alabama,Montgomery,36131
+Alabama,Montgomery,36132
+Alabama,Montgomery,36133
+Alabama,Montgomery,36134
+Alabama,Montgomery,36135
+Alabama,Montgomery,36140
+Alabama,Montgomery,36141
+Alabama,Montgomery,36142
+Alabama,Montgomery,36177
+Alabama,Montgomery,36191
+Alabama,Montrose,36559
+Alabama,Moody,35004
+Alabama,Mooresville,35649
+Alabama,Morris,35116
+Alabama,Morvin,36762
+Alabama,Moulton,35650
+Alabama,Moundville,35474
+Alabama,Mount Hope,35651
+Alabama,Mount Meigs,36057
+Alabama,Mount Olive,35117
+Alabama,Mount Vernon,36560
+Alabama,Mulga,35118
+Alabama,Munford,36268
+Alabama,Muscadine,36269
+Alabama,Muscle Shoals,35661
+Alabama,Muscle Shoals,35662
+Alabama,Myrtlewood,36763
+Alabama,Nanafalia,36764
+Alabama,Natural Bridge,35577
+Alabama,Nauvoo,35578
+Alabama,Needham,36915
+Alabama,New Brockton,36351
+Alabama,New Castle,35119
+Alabama,New Hope,35760
+Alabama,New Market,35761
+Alabama,Newbern,36765
+Alabama,Newell,36270
+Alabama,Newton,36352
+Alabama,Newville,36353
+Alabama,Normal,35762
+Alabama,Northport,35473
+Alabama,Northport,35475
+Alabama,Northport,35476
+Alabama,Notasulga,36866
+Alabama,Oak Hill,36766
+Alabama,Oakman,35579
+Alabama,Odenville,35120
+Alabama,Ohatchee,36271
+Alabama,Oneonta,35121
+Alabama,Opelika,36801
+Alabama,Opelika,36802
+Alabama,Opelika,36803
+Alabama,Opelika,36804
+Alabama,Opp,36467
+Alabama,Orange Beach,36561
+Alabama,Orrville,36767
+Alabama,Owens Cross Roads,35763
+Alabama,Ozark,36360
+Alabama,Ozark,36361
+Alabama,Paint Rock,35764
+Alabama,Palmerdale,35123
+Alabama,Panola,35477
+Alabama,Pansey,36370
+Alabama,Parrish,35580
+Alabama,Pelham,35124
+Alabama,Pell City,35125
+Alabama,Pell City,35128
+Alabama,Pennington,36916
+Alabama,Perdido,36562
+Alabama,Perdue Hill,36470
+Alabama,Perote,36061
+Alabama,Peterman,36471
+Alabama,Peterson,35478
+Alabama,Petrey,36062
+Alabama,Phenix City,36867
+Alabama,Phenix City,36868
+Alabama,Phenix City,36869
+Alabama,Phenix City,36870
+Alabama,Phil Campbell,35581
+Alabama,Piedmont,36272
+Alabama,Pike Road,36064
+Alabama,Pinckard,36371
+Alabama,Pine Apple,36768
+Alabama,Pine Hill,36769
+Alabama,Pine Level,36065
+Alabama,Pinson,35126
+Alabama,Pisgah,35765
+Alabama,Pittsview,36871
+Alabama,Plantersville,36758
+Alabama,Pleasant Grove,35127
+Alabama,Point Clear,36564
+Alabama,Prattville,36066
+Alabama,Prattville,36067
+Alabama,Prattville,36068
+Alabama,Princeton,35766
+Alabama,Quinton,35130
+Alabama,Ragland,35131
+Alabama,Rainbow City,35906
+Alabama,Rainsville,35986
+Alabama,Ralph,35480
+Alabama,Ramer,36069
+Alabama,Ranburne,36273
+Alabama,Randolph,36792
+Alabama,Range,36473
+Alabama,Red Bay,35582
+Alabama,Red Level,36474
+Alabama,Reform,35481
+Alabama,Remlap,35133
+Alabama,Repton,36475
+Alabama,River Falls,36476
+Alabama,Riverside,35135
+Alabama,Roanoke,36274
+Alabama,Robertsdale,36567
+Alabama,Rockford,35136
+Alabama,Rogersville,35652
+Alabama,Russellville,35653
+Alabama,Russellville,35654
+Alabama,Rutledge,36071
+Alabama,Ryland,35767
+Alabama,Safford,36773
+Alabama,Saginaw,35137
+Alabama,Saint Elmo,36568
+Alabama,Saint Stephens,36569
+Alabama,Salem,36874
+Alabama,Salitpa,36570
+Alabama,Samantha,35482
+Alabama,Samson,36477
+Alabama,Saraland,36571
+Alabama,Sardis,36775
+Alabama,Satsuma,36572
+Alabama,Sawyerville,36776
+Alabama,Sayre,35139
+Alabama,Scottsboro,35768
+Alabama,Scottsboro,35769
+Alabama,Seale,36875
+Alabama,Section,35771
+Alabama,Selma,36701
+Alabama,Selma,36702
+Alabama,Selma,36703
+Alabama,Seminole,36574
+Alabama,Semmes,36575
+Alabama,Shannon,35142
+Alabama,Sheffield,35660
+Alabama,Shelby,35143
+Alabama,Shorter,36075
+Alabama,Shorterville,36373
+Alabama,Silas,36919
+Alabama,Siluria,35144
+Alabama,Silverhill,36576
+Alabama,Sipsey,35584
+Alabama,Skipperville,36374
+Alabama,Slocomb,36375
+Alabama,Smiths,36877
+Alabama,Snow Hill,36778
+Alabama,Somerville,35670
+Alabama,Spanish Fort,36527
+Alabama,Spanish Fort,36577
+Alabama,Spring Garden,36275
+Alabama,Springville,35146
+Alabama,Sprott,36779
+Alabama,Spruce Pine,35585
+Alabama,Stanton,36790
+Alabama,Stapleton,36578
+Alabama,Steele,35987
+Alabama,Sterrett,35147
+Alabama,Stevenson,35772
+Alabama,Stockton,36579
+Alabama,Sulligent,35586
+Alabama,Sumiton,35148
+Alabama,Summerdale,36580
+Alabama,Sunflower,36581
+Alabama,Sweet Water,36782
+Alabama,Sycamore,35149
+Alabama,Sylacauga,35150
+Alabama,Sylacauga,35151
+Alabama,Sylvania,35988
+Alabama,Talladega,35160
+Alabama,Talladega,35161
+Alabama,Tallassee,36078
+Alabama,Tanner,35671
+Alabama,Theodore,36582
+Alabama,Theodore,36590
+Alabama,Thomaston,36783
+Alabama,Thomasville,36784
+Alabama,Thorsby,35171
+Alabama,Tibbie,36583
+Alabama,Titus,36080
+Alabama,Toney,35773
+Alabama,Town Creek,35672
+Alabama,Townley,35587
+Alabama,Toxey,36921
+Alabama,Trafford,35172
+Alabama,Trenton,35774
+Alabama,Trinity,35673
+Alabama,Troy,36079
+Alabama,Troy,36081
+Alabama,Troy,36082
+Alabama,Trussville,35173
+Alabama,Tuscaloosa,35401
+Alabama,Tuscaloosa,35402
+Alabama,Tuscaloosa,35403
+Alabama,Tuscaloosa,35404
+Alabama,Tuscaloosa,35405
+Alabama,Tuscaloosa,35406
+Alabama,Tuscaloosa,35407
+Alabama,Tuscaloosa,35485
+Alabama,Tuscaloosa,35486
+Alabama,Tuscaloosa,35487
+Alabama,Tuscumbia,35674
+Alabama,Tuskegee Institute,36087
+Alabama,Tuskegee Institute,36088
+Alabama,Tuskegee,36083
+Alabama,Tyler,36785
+Alabama,Union Grove,35175
+Alabama,Union Springs,36089
+Alabama,Uniontown,36786
+Alabama,Uriah,36480
+Alabama,Valhermoso Springs,35775
+Alabama,Valley Head,35989
+Alabama,Valley,36854
+Alabama,Valley,36872
+Alabama,Vance,35490
+Alabama,Vandiver,35176
+Alabama,Verbena,36091
+Alabama,Vernon,35592
+Alabama,Vina,35593
+Alabama,Vincent,35178
+Alabama,Vinegar Bend,36584
+Alabama,Vinemont,35179
+Alabama,Vredenburgh,36481
+Alabama,Wadley,36276
+Alabama,Wagarville,36585
+Alabama,Walker Springs,36586
+Alabama,Walnut Grove,35990
+Alabama,Ward,36922
+Alabama,Warrior,35180
+Alabama,Waterloo,35677
+Alabama,Watson,35181
+Alabama,Wattsville,35182
+Alabama,Waverly,36879
+Alabama,Weaver,36277
+Alabama,Webb,36376
+Alabama,Wedowee,36278
+Alabama,Wellington,36279
+Alabama,Weogufka,35183
+Alabama,West Blocton,35184
+Alabama,West Greene,35491
+Alabama,Westover,35185
+Alabama,Wetumpka,36092
+Alabama,Wetumpka,36093
+Alabama,Whatley,36482
+Alabama,Wilmer,36587
+Alabama,Wilsonville,35186
+Alabama,Wilton,35187
+Alabama,Winfield,35594
+Alabama,Wing,36483
+Alabama,Woodland,36280
+Alabama,Woodstock,35188
+Alabama,Woodville,35776
+Alabama,York,36925

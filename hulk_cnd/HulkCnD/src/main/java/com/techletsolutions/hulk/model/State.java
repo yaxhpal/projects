@@ -10,6 +10,7 @@ public class State extends CnDEntity {
 	protected Set<City> cities;
 
 	public State (String name, Long parent) {
+		this.id = 0L;
 		this.group_name = "State";
 		this.name = name;
 		this.description = "State of "+name;
