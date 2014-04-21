@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/.jdk1.7.0_51"/>
+	<classpathentry kind="lib" path="lib/poi-3.10-FINAL-20140208.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.12.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-log4j12-1.7.7.jar"/>
+	<classpathentry excluding="**" kind="src" path="src/main/resources"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
