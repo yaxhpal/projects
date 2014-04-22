@@ -10,14 +10,12 @@ public class ConvertUtils {
 			Pattern pattern = Pattern.compile("([\\d]+)");
 			Matcher matcher = pattern.matcher(text);
 			if (matcher.find()) {
-				// System.out.println(matcher.group(1));
 				return new Integer(matcher.group(1));
 			}
-			
 		} catch (Exception e) {
 			return -1;
 		}
-		return null;
+		return -1;
 	}
 	
 	public static Long getLongFromString(String text) {
@@ -27,7 +25,7 @@ public class ConvertUtils {
 			// System.out.println(matcher.group(1));
 			return new Long(matcher.group(1));
 		}
-		return null;
+		return -1L;
 	}
 	
 	public static void main(String[] args) {

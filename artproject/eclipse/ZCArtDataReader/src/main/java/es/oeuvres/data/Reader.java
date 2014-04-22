@@ -24,6 +24,8 @@ import es.oeuvres.model.Movement;
 import es.oeuvres.model.PurchaseInfo;
 import es.oeuvres.model.Style;
 import es.oeuvres.model.Tag;
+import es.oeuvres.utils.ConvertUtils;
+import es.oeuvres.utils.StringUtils;
 
 public class Reader {
 
@@ -151,6 +153,10 @@ public class Reader {
 				field.set(movement, cell.toString().trim());
 			}
 		}
+		
+		if (StringUtils.isEmpty(movement.movementName)) {
+			movement.movementName = "Unknown";
+		}
 		return flag?movement:null;
 	}
 
@@ -181,6 +187,11 @@ public class Reader {
 				field.set(style, cell.toString().trim());
 			}
 		}
+		
+		if (StringUtils.isEmpty(style.styleName)) {
+			style.styleName = "Unknown";
+		}
+		
 		return flag?style:null;
 	}
 
@@ -195,6 +206,10 @@ public class Reader {
 				flag = true;
 				field.set(category, cell.toString().trim());
 			}
+		}
+		
+		if (StringUtils.isEmpty(category.categoryName)) {
+			category.categoryName = "Unknown";
 		}
 		return flag?category:null;
 	}
@@ -225,6 +240,12 @@ public class Reader {
 				flag = true;
 				field.set(tag, cell.toString().trim());
 			}
+		}
+		
+		if (StringUtils.isEmpty(tag.tagName)) {
+			tag.tagName = "Unknown";
+		} else {
+			tag.tagName = ConvertUtils.getIntegerFromString(tag.tagName)+"";
 		}
 		return flag?tag:null;
 	}
@@ -290,4 +311,6 @@ public class Reader {
 		 map.put("valuationBy", 50);
 		 map.put("valuationDate", 51);
 	 }
+	 
+	 
 }

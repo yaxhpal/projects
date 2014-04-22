@@ -47,6 +47,29 @@ LOCK TABLES `Artist` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Artist_Movement`
+--
+
+DROP TABLE IF EXISTS `Artist_Movement`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Artist_Movement` (
+  `artist_id` bigint(20) unsigned NOT NULL,
+  `movements_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`artist_id`,`movements_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Artist_Movement`
+--
+
+LOCK TABLES `Artist_Movement` WRITE;
+/*!40000 ALTER TABLE `Artist_Movement` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Artist_Movement` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Artwork`
 --
 
@@ -109,9 +132,9 @@ DROP TABLE IF EXISTS `Artwork_Category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Artwork_Category` (
-  `artwork_id` bigint(20) unsigned DEFAULT NULL,
-  `category_id` bigint(20) unsigned DEFAULT NULL,
-  PRIMARY KEY (`artwork_id`,`category_id`)
+  `artwork_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `categories_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`artwork_id`,`categories_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Mapping among artworks and categories.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -133,8 +156,8 @@ DROP TABLE IF EXISTS `Artwork_Exhibition`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Artwork_Exhibition` (
   `artwork_id` bigint(20) unsigned NOT NULL,
-  `exhibition_id` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`artwork_id`,`exhibition_id`)
+  `exhibitions_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`artwork_id`,`exhibitions_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Mapping between artworks and exhibitions.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -156,8 +179,8 @@ DROP TABLE IF EXISTS `Artwork_Movement`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Artwork_Movement` (
   `artwork_id` bigint(20) unsigned NOT NULL,
-  `movement_id` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`artwork_id`,`movement_id`)
+  `movements_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`artwork_id`,`movements_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Mapping between artworks and movements.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -171,26 +194,26 @@ LOCK TABLES `Artwork_Movement` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Artwork_Slideshow`
+-- Table structure for table `Slideshow_Artwork`
 --
 
-DROP TABLE IF EXISTS `Artwork_Slideshow`;
+DROP TABLE IF EXISTS `Slideshow_Artwork`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Artwork_Slideshow` (
-  `artwork_id` bigint(20) unsigned NOT NULL,
+CREATE TABLE `Slideshow_Artwork` (
+  `artworks_id` bigint(20) unsigned NOT NULL,
   `slideshow_id` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`slideshow_id`,`artwork_id`)
+  PRIMARY KEY (`slideshow_id`,`artworks_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Mapping between artworks and slideshows.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Artwork_Slideshow`
+-- Dumping data for table `Slideshow_Artwork`
 --
 
-LOCK TABLES `Artwork_Slideshow` WRITE;
-/*!40000 ALTER TABLE `Artwork_Slideshow` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Artwork_Slideshow` ENABLE KEYS */;
+LOCK TABLES `Slideshow_Artwork` WRITE;
+/*!40000 ALTER TABLE `Slideshow_Artwork` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Slideshow_Artwork` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -202,8 +225,8 @@ DROP TABLE IF EXISTS `Artwork_Style`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Artwork_Style` (
   `artwork_id` bigint(20) unsigned NOT NULL,
-  `style_id` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`artwork_id`,`style_id`)
+  `styles_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`artwork_id`,`styles_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Mapping between artworks and styles.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -217,26 +240,26 @@ LOCK TABLES `Artwork_Style` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Artwork_Tag`
+-- Table structure for table `Tag_Artwork`
 --
 
-DROP TABLE IF EXISTS `Artwork_Tag`;
+DROP TABLE IF EXISTS `Tag_Artwork`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Artwork_Tag` (
-  `artwork_id` bigint(20) unsigned NOT NULL,
+CREATE TABLE `Tag_Artwork` (
+  `artworks_id` bigint(20) unsigned NOT NULL,
   `tag_id` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`tag_id`,`artwork_id`)
+  PRIMARY KEY (`tag_id`,`artworks_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Artwork_Tag`
+-- Dumping data for table `Tag_Artwork`
 --
 
-LOCK TABLES `Artwork_Tag` WRITE;
-/*!40000 ALTER TABLE `Artwork_Tag` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Artwork_Tag` ENABLE KEYS */;
+LOCK TABLES `Tag_Artwork` WRITE;
+/*!40000 ALTER TABLE `Tag_Artwork` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Tag_Artwork` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -706,4 +729,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-21 14:48:39
+-- Dump completed on 2014-04-21 18:06:54

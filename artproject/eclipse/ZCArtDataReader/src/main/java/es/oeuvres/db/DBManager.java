@@ -40,13 +40,13 @@ public class DBManager {
 	private static  PreparedStatement preparedStatementMovement			= null;
 
 	private static  PreparedStatement preparedStatementStyle			= null;
-	
+
 	private static  PreparedStatement preparedStatementCategory			= null;
 
 	private static  PreparedStatement preparedStatementLocation			= null;
-	
+
 	private static  PreparedStatement preparedStatementTag				= null;
-	
+
 
 	public void open() {
 		try {
@@ -69,13 +69,13 @@ public class DBManager {
 
 			sql = ZCArtConfig.getProperty("zcart.category.preparedstatement");
 			preparedStatementCategory = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			
+
 			sql = ZCArtConfig.getProperty("zcart.location.preparedstatement");
 			preparedStatementLocation = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			
+
 			sql = ZCArtConfig.getProperty("zcart.tag.preparedstatement");
 			preparedStatementTag = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			
+
 		} catch (SQLException e) {
 			logger.error("Sql Error while initializing DB components", e);
 		}
@@ -112,7 +112,7 @@ public class DBManager {
 		} catch (Exception e) {
 			logger.error("Error while closing the Style prepared statement.", e);
 		}
-		
+
 		try {
 			preparedStatementCategory.close();
 		} catch (Exception e) {
@@ -124,13 +124,13 @@ public class DBManager {
 		} catch (Exception e) {
 			logger.error("Error while closing the Location prepared statement.", e);
 		}
-		
+
 		try {
 			preparedStatementTag.close();
 		} catch (Exception e) {
 			logger.error("Error while closing the Tag prepared statement.", e);
 		}
-		
+
 		try {
 			conn.close();
 		} catch (Exception e) {
@@ -159,8 +159,9 @@ public class DBManager {
 			preparedStatementArtist.setString(4, artist.artistCountry);
 			preparedStatementArtist.setInt(5, ConvertUtils.getIntegerFromString(artist.yearOfBirth));
 			preparedStatementArtist.setInt(6, ConvertUtils.getIntegerFromString(artist.yearOfDeath));
-			preparedStatementArtist.setInt(7, ConvertUtils.getIntegerFromString(artist.hasPhoto));
-			preparedStatementArtist.setInt(8, 1);
+			preparedStatementArtist.setString(7, artist.link);
+			preparedStatementArtist.setInt(8, ConvertUtils.getIntegerFromString(artist.hasPhoto));
+			preparedStatementArtist.setInt(9, 1);
 			preparedStatementArtist.executeUpdate();
 			rs = preparedStatementArtist.getGeneratedKeys();
 			if (rs.next()) {
@@ -214,7 +215,7 @@ public class DBManager {
 		}
 		return styleId;
 	}
-	
+
 	public Long saveCategory(Category category, Long parentId) throws SQLException {
 		// Check if this Style already exists?
 		PreparedStatement stmt = conn.prepareStatement("select * from Category where name=?;");
@@ -240,7 +241,7 @@ public class DBManager {
 				categoryId = rs.getLong(1);
 			}
 		}
-		
+
 		String subcategoryName = category.subCategoryName;
 		if ( subcategoryName!= null && !subcategoryName.trim().isEmpty()) {
 			Category subcat = new Category();
@@ -248,7 +249,7 @@ public class DBManager {
 			subcat.subCategoryName = null;
 			categoryId = saveCategory(subcat, categoryId);
 		}
-		
+
 		return categoryId;
 	}
 
@@ -286,20 +287,27 @@ public class DBManager {
 		try {
 			preparedStatementArtwork.setString(1, artwork.artBookBio);
 			preparedStatementArtwork.setString(2, artwork.name);
+
 			preparedStatementArtwork.setInt(3, ConvertUtils.getIntegerFromString(artwork.yearNote));
 			preparedStatementArtwork.setInt(4, ConvertUtils.getIntegerFromString(artwork.yearNote));
+
 			preparedStatementArtwork.setString(5, artwork.signed);
 			preparedStatementArtwork.setString(6, artwork.period);
+
 			preparedStatementArtwork.setInt(7, ConvertUtils.getIntegerFromString(artwork.unframedWidth));
+
 			preparedStatementArtwork.setString(8, artwork.medium);
 			preparedStatementArtwork.setString(9, artwork.origin);
 			preparedStatementArtwork.setString(10, tagNo);
 			preparedStatementArtwork.setString(11, artwork.editionNo);
+
+
 			preparedStatementArtwork.setInt(12, ConvertUtils.getIntegerFromString(artwork.unframedDepth));
 			preparedStatementArtwork.setInt(13, ConvertUtils.getIntegerFromString(artwork.unframedHeight));
 			preparedStatementArtwork.setInt(14, ConvertUtils.getIntegerFromString(artwork.framedDepth));
 			preparedStatementArtwork.setInt(15, ConvertUtils.getIntegerFromString(artwork.framedHeight));
 			preparedStatementArtwork.setInt(16, ConvertUtils.getIntegerFromString(artwork.framedWidth));
+
 			preparedStatementArtwork.setString(17, artwork.exportRestriction);
 			preparedStatementArtwork.setString(18, artwork.importRestriction);
 			preparedStatementArtwork.setString(19, artwork.conditionDescription);
@@ -319,7 +327,7 @@ public class DBManager {
 		}
 		return artworkId;
 	}
-	
+
 	//(location, room, country, wall, owner_id, version)
 	public Long saveLocation(Location location, Long userId) throws SQLException {
 		Long locationId = 0L;
@@ -348,7 +356,7 @@ public class DBManager {
 		}
 		return locationId;
 	}
-	
+
 	public Long saveTag(Tag tag, Long userId) throws SQLException {
 		Long tagId = 0L;
 		// Check if this artist already exists?
@@ -370,5 +378,17 @@ public class DBManager {
 			}
 		}
 		return tagId;
+	}
+
+	public void insertIntoLinkTable(String sql, Long id_a, Long id_b) {
+		try {
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setLong(1, id_a);
+			pst.setLong(2, id_b);
+			pst.executeUpdate();
+			pst.close();
+		} catch (SQLException e) {
+			logger.error("Error while inserting into one of link table.", e);
+		}
 	}
 }
