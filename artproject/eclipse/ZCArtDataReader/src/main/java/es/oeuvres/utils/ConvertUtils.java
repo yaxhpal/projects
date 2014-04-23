@@ -18,6 +18,20 @@ public class ConvertUtils {
 		return -1;
 	}
 	
+	
+	public static Float getFloatFromString(String text) {
+		try {
+			Pattern pattern = Pattern.compile("(\\d+\\.?\\d+)");
+			Matcher matcher = pattern.matcher(text);
+			if (matcher.find()) {
+				return Float.parseFloat(matcher.group(1));
+			}
+		} catch (Exception e) {
+			// What to do?
+		}
+		return 0F;
+	}
+	
 	public static Long getLongFromString(String text) {
 		Pattern pattern = Pattern.compile("([\\d]+)");
 		Matcher matcher = pattern.matcher(text);
@@ -29,12 +43,13 @@ public class ConvertUtils {
 	}
 	
 	public static void main(String[] args) {
-		String[] literals = {"1999.0","1888.0","2006.0"};
+		String[] literals = {"1999.0","1888.0","2006.5"};
 		
 		for (String string : literals) {
 			///System.out.println(string);
-			Integer idea = getIntegerFromString(string);
-			System.out.println(idea);
+			//Integer idea = getIntegerFromString(string);
+			Float idea2 =  getFloatFromString(string);
+			System.out.println(idea2*100);
 		}
 	}
 }

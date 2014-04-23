@@ -294,7 +294,7 @@ public class DBManager {
 			preparedStatementArtwork.setString(5, artwork.signed);
 			preparedStatementArtwork.setString(6, artwork.period);
 
-			preparedStatementArtwork.setInt(7, ConvertUtils.getIntegerFromString(artwork.unframedWidth));
+			preparedStatementArtwork.setInt(7, (int)(ConvertUtils.getFloatFromString(artwork.unframedWidth)*100));
 
 			preparedStatementArtwork.setString(8, artwork.medium);
 			preparedStatementArtwork.setString(9, artwork.origin);
@@ -302,11 +302,13 @@ public class DBManager {
 			preparedStatementArtwork.setString(11, artwork.editionNo);
 
 
-			preparedStatementArtwork.setInt(12, ConvertUtils.getIntegerFromString(artwork.unframedDepth));
-			preparedStatementArtwork.setInt(13, ConvertUtils.getIntegerFromString(artwork.unframedHeight));
-			preparedStatementArtwork.setInt(14, ConvertUtils.getIntegerFromString(artwork.framedDepth));
-			preparedStatementArtwork.setInt(15, ConvertUtils.getIntegerFromString(artwork.framedHeight));
-			preparedStatementArtwork.setInt(16, ConvertUtils.getIntegerFromString(artwork.framedWidth));
+			
+			
+			preparedStatementArtwork.setInt(12, (int)(ConvertUtils.getFloatFromString(artwork.unframedDepth)*100));
+			preparedStatementArtwork.setInt(13, (int)(ConvertUtils.getFloatFromString(artwork.unframedHeight)*100));
+			preparedStatementArtwork.setInt(14, (int)(ConvertUtils.getFloatFromString(artwork.framedDepth)*100));
+			preparedStatementArtwork.setInt(15, (int)(ConvertUtils.getFloatFromString(artwork.framedHeight)*100));
+			preparedStatementArtwork.setInt(16, (int)(ConvertUtils.getFloatFromString(artwork.framedWidth)*100));
 
 			preparedStatementArtwork.setString(17, artwork.exportRestriction);
 			preparedStatementArtwork.setString(18, artwork.importRestriction);
@@ -388,7 +390,7 @@ public class DBManager {
 			pst.executeUpdate();
 			pst.close();
 		} catch (SQLException e) {
-			logger.error("Error while inserting into one of link table.", e);
+			//logger.error("Error while inserting into one of link table.", e);
 		}
 	}
 }
