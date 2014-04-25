@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- ====================================================================== 
+     Geronimo Sample Applications
+     
+     
+     ====================================================================== -->
+<project name="TimeReport" default="war">
+	<property file="build.properties"/>
+	<property name="src.dir" value="src"/>
+	<property name="dest.dir" value="releases"/>
+	<property name="lib.dir" value="lib"/>
+	<property name="web.dir" value="web"/>
+	
+	
+    
+    <!-- ================================= 
+          target: war              
+         ================================= -->
+    <target name="war" depends="compile">
+    	<jar destfile="${dest.dir}/TimeReport.war">
+			<zipfileset dir="${dest.dir}/temp"></zipfileset>
+    	</jar>    	
+    	<delete dir="${dest.dir}/temp"></delete>
+    </target>
+
+	 <!-- ================================= 
+	          target: compile              
+	      ================================= -->   
+    <target name="compile" depends="package">
+    	<javac srcdir="${src.dir}" destdir="${dest.dir}/temp/WEB-INF/classes">
+    	<classpath path="${lib.dir}/geronimo-servlet_2.4_spec-1.0.jar"/>
+    	</javac>    
+    </target>
+	
+	<!-- ================================= 
+		          package: build directory structure              
+	  ================================= --> 
+	<target name="package">
+		<mkdir dir="${dest.dir}/temp" />
+		<mkdir dir="${dest.dir}/temp/WEB-INF" />
+		<mkdir dir="${dest.dir}/temp/WEB-INF/classes" />
+		<copy todir="${dest.dir}/temp">
+			<fileset dir="${web.dir}"/>
+		</copy>
+	</target>
+	
+	
+</project>
+

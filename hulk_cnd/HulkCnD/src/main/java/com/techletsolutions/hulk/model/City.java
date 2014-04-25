@@ -54,7 +54,8 @@ public class City extends CnDEntity {
 		Long cityId = super.save(em);
 		if (cityId > 0L) {
 			for (ZipCode zipCode : zipcodes) {
-				zipCode.setParent(cityId);
+				zipCode.setGroup_name(group_name.replace("CITY", name.substring(0,3).toUpperCase())+"_ZIPCODE");
+				zipCode.setParent(cityId);			
 				zipCode.save(em);
 			}
 		}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+	 http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	 version="2.4">	
+	 
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+  	</welcome-file-list>
+  	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>employee</web-resource-name>
+			<url-pattern>/employee/*</url-pattern>			
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>employee</role-name>			 
+		</auth-constraint>
+	</security-constraint>
+	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>manager</web-resource-name>
+			<url-pattern>/manager/*</url-pattern>			
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>manager</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<realm-name>TimeReportRealm</realm-name>
+		<form-login-config>
+			<form-login-page>/login/login.jsp</form-login-page>
+			<form-error-page>/login/login_error.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	
+	<security-role>
+		<role-name>employee</role-name>		
+    </security-role>
+	<security-role>
+		<role-name>manager</role-name>		
+    </security-role>
+    	
+    <servlet>
+	    <display-name>AddTimeRecordServlet</display-name>
+	    <servlet-name>AddTimeRecordServlet</servlet-name>
+	    <servlet-class>org.apache.geronimo.samples.timereport.web.AddTimeRecordServlet</servlet-class>
+  	</servlet>
+  	<servlet>
+	    <display-name>AddEmployeeServlet</display-name>
+	    <servlet-name>AddEmployeeServlet</servlet-name>
+	    <servlet-class>org.apache.geronimo.samples.timereport.web.AddEmployeeServlet</servlet-class>
+  	</servlet>
+  	
+  	<servlet-mapping>
+	    <servlet-name>AddTimeRecordServlet</servlet-name>
+	    <url-pattern>/employee/add_timerecord</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+	    <servlet-name>AddEmployeeServlet</servlet-name>
+	    <url-pattern>/manager/add_employee</url-pattern>
+    </servlet-mapping>
+        
+</web-app>

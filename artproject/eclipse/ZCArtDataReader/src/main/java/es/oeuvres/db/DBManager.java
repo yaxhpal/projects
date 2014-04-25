@@ -16,6 +16,7 @@ import es.oeuvres.model.Artwork;
 import es.oeuvres.model.Category;
 import es.oeuvres.model.Location;
 import es.oeuvres.model.Movement;
+import es.oeuvres.model.Provenance;
 import es.oeuvres.model.PurchaseInfo;
 import es.oeuvres.model.Style;
 import es.oeuvres.model.Tag;
@@ -47,6 +48,8 @@ public class DBManager {
 
 	private static  PreparedStatement preparedStatementTag				= null;
 
+	private static  PreparedStatement preparedStatementProvenance		= null;
+
 
 	public void open() {
 		try {
@@ -75,6 +78,9 @@ public class DBManager {
 
 			sql = ZCArtConfig.getProperty("zcart.tag.preparedstatement");
 			preparedStatementTag = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+			sql = ZCArtConfig.getProperty("zcart.provenance.preparedstatement");
+			preparedStatementProvenance = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 		} catch (SQLException e) {
 			logger.error("Sql Error while initializing DB components", e);
@@ -129,6 +135,12 @@ public class DBManager {
 			preparedStatementTag.close();
 		} catch (Exception e) {
 			logger.error("Error while closing the Tag prepared statement.", e);
+		}
+
+		try {
+			preparedStatementProvenance.close();
+		} catch (Exception e) {
+			logger.error("Error while closing the Provenance prepared statement.", e);
 		}
 
 		try {
@@ -302,8 +314,8 @@ public class DBManager {
 			preparedStatementArtwork.setString(11, artwork.editionNo);
 
 
-			
-			
+
+
 			preparedStatementArtwork.setInt(12, (int)(ConvertUtils.getFloatFromString(artwork.unframedDepth)*100));
 			preparedStatementArtwork.setInt(13, (int)(ConvertUtils.getFloatFromString(artwork.unframedHeight)*100));
 			preparedStatementArtwork.setInt(14, (int)(ConvertUtils.getFloatFromString(artwork.framedDepth)*100));
@@ -382,15 +394,35 @@ public class DBManager {
 		return tagId;
 	}
 
-	public void insertIntoLinkTable(String sql, Long id_a, Long id_b) {
+	// (artwork_id, date, owner, version)
+	public Long saveProvenance(Provenance provenance) throws SQLException {
+		Long provenanceId = 0L;
+		preparedStatementProvenance.setLong(1, ConvertUtils.getIntegerFromString(provenance.artworkId));
+		preparedStatementProvenance.setString(2, provenance.date);
+		preparedStatementProvenance.setString(3, provenance.owner);
+		preparedStatementProvenance.setInt(4, 0);
 		try {
-			PreparedStatement pst = conn.prepareStatement(sql);
-			pst.setLong(1, id_a);
-			pst.setLong(2, id_b);
-			pst.executeUpdate();
-			pst.close();
-		} catch (SQLException e) {
-			//logger.error("Error while inserting into one of link table.", e);
+			preparedStatementProvenance.executeUpdate();
+			ResultSet rs = preparedStatementProvenance.getGeneratedKeys();
+			if (rs.next()) {
+				provenanceId = rs.getLong(1);
+			}
+			logger.info("Successfully save the provenance with id: {} and owner: {}",provenanceId, provenance.owner);
+		} catch (Exception e) {
+			logger.error("Error while saving Provenance.", e);
 		}
+		return provenanceId;
 	}
+
+public void insertIntoLinkTable(String sql, Long id_a, Long id_b) {
+	try {
+		PreparedStatement pst = conn.prepareStatement(sql);
+		pst.setLong(1, id_a);
+		pst.setLong(2, id_b);
+		pst.executeUpdate();
+		pst.close();
+	} catch (SQLException e) {
+		//logger.error("Error while inserting into one of link table.", e);
+	}
+}
 }

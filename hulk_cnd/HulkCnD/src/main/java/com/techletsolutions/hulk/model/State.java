@@ -11,7 +11,7 @@ public class State extends CnDEntity {
 
 	public State (String name, Long parent) {
 		this.id = 0L;
-		this.group_name = "State";
+		this.group_name = "US_STATE";
 		this.name = name;
 		this.description = "State of "+name;
 		this.parent = parent;
@@ -60,6 +60,7 @@ public class State extends CnDEntity {
 		Long stateId = super.save(em);
 		if (stateId > 0L) {
 			for (City city : cities) {
+				city.setGroup_name("US_"+name.substring(0,3).toUpperCase()+"_CITY");
 				city.setParent(stateId);
 				city.save(em);
 			}

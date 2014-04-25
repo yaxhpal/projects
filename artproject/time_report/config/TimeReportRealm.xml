@@ -1,0 +1,44 @@
+<module xmlns="http://geronimo.apache.org/xml/ns/deployment-1.1">
+    <environment>
+        <moduleId>
+            <groupId>console</groupId>
+            <artifactId>TimeReportRealm</artifactId>
+            <version>1.0</version>
+            <type>car</type>
+        </moduleId>
+        <dependencies>
+            <dependency>
+                <groupId>geronimo</groupId>
+                <artifactId>j2ee-security</artifactId>
+                <type>car</type>
+            </dependency>
+            <dependency>
+		<groupId>geronimo</groupId>
+		<artifactId>system-database</artifactId>
+		<type>car</type>
+            </dependency>
+        </dependencies>
+    </environment>
+    <gbean name="TimeReportRealm" class="org.apache.geronimo.security.realm.GenericSecurityRealm">
+        <attribute name="realmName">TimeReportRealm</attribute>
+        <reference name="ServerInfo">
+            <name>ServerInfo</name>
+        </reference>
+        <reference name="LoginService">
+            <name>JaasLoginService</name>
+        </reference>
+        <xml-reference name="LoginModuleConfiguration">
+            <log:login-config xmlns:log="http://geronimo.apache.org/xml/ns/loginconfig-1.1">
+                <log:login-module control-flag="REQUIRED" server-side="true" wrap-principals="false">
+                    <log:login-domain-name>TimeReportRealm</log:login-domain-name>
+                    <log:login-module-class>org.apache.geronimo.security.realm.providers.SQLLoginModule</log:login-module-class>
+                    <log:option name="jdbcDriver">org.apache.derby.jdbc.EmbeddedDriver</log:option>
+                    <log:option name="jdbcUser">app</log:option>
+                    <log:option name="userSelect">select userid, password from users where userid=?</log:option>
+                    <log:option name="groupSelect">select userid, groupname from usergroups where userid=?</log:option>
+                    <log:option name="jdbcURL">jdbc:derby:TimeReportDB</log:option>
+                </log:login-module>
+            </log:login-config>
+        </xml-reference>
+    </gbean>
+</module>
