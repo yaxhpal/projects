@@ -154,7 +154,7 @@ public class Main {
 		} else {
 			if (((LoginResponse) response).isOk()) {
 				logger.info("Logged in successfully.");
-				System.out.println("Logged in successfully.");
+				//System.out.println("Logged in successfully.");
 			} else {
 				logger.error("Failed to login. There was unknown error.", response.toString());
 				System.err.println("Failed to login. There was unknown error.");
@@ -192,13 +192,14 @@ public class Main {
 			System.exit(Errors.ERROR_INVALID_CHECKOUT_REQUEST);
 		} else {
 			logger.debug( ((CheckOutResponse) response).getScreenMessage());
-			System.out.println( ((CheckOutResponse) response).getScreenMessage());
+			logger.info(((CheckOutResponse) response).getScreenMessage());
+			//System.out.println( ((CheckOutResponse) response).getScreenMessage());
 		}
 		try {
 			logger.debug("Patron name {}", ((PatronInformationResponse)response).getPersonalName());
 			logger.debug("Patron email {}", ((PatronInformationResponse)response).getEmailAddress());
 		} catch (Exception e) {
-			logger.warn("Could not get patron information.");
+			logger.debug("Could not get patron information.");
 		}
 	}
 
@@ -236,13 +237,13 @@ public class Main {
 			logger.debug("Patron name {}", ((PatronInformationResponse)response).getPersonalName());
 			logger.debug("Patron email {}", ((PatronInformationResponse)response).getEmailAddress());
 		} catch (Exception e) {
-			logger.warn("Could not get patron information.");
+			logger.debug("Could not get patron information.");
 		}
 	}
 
 	public static void initializeLogger() {
 		org.apache.log4j.Logger rootLogger = org.apache.log4j.Logger.getRootLogger();
-		rootLogger.setLevel(Level.INFO);
+		rootLogger.setLevel(Level.DEBUG);
 		String logginDir = System.getProperty("java.io.tmpdir")+File.separator+"SIP2Client";
 		logger.debug("logging directory is: {}.", logginDir);
 		File logDir = new File(logginDir);
@@ -273,11 +274,11 @@ public class Main {
 	}
 	
 	private void usages() {
-		System.out.println("Usages: <command> arguments");
+		logger.info("Usages: <command> arguments");
 		System.out.println();
-		System.out.println("Example: ");
-		System.out.println("login <username> <password>");
-		System.out.println("checkout <patronId> <itemId>");
-		System.out.println("checkin <itemId>");
+		logger.info("Example: ");
+		logger.info("login <username> <password>");
+		logger.info("checkout <patronId> <itemId>");
+		logger.info("checkin <itemId>");
 	}
 }
