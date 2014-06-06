@@ -40,6 +40,7 @@ public class Main {
 	private static SocketConnection connection;
 
 	public Main() {
+		System.setProperty("com.ceridwen.circulation.SIP.charset", "ISO8859_1");
 		logger.debug("Initializing SIP Client...");
 		connection = new SocketConnection();
 		connection.setHost(HOST);
@@ -191,9 +192,12 @@ public class Main {
 			System.err.println("Error - CheckOut Request did not return valid response from server.");
 			System.exit(Errors.ERROR_INVALID_CHECKOUT_REQUEST);
 		} else {
-			logger.debug( ((CheckOutResponse) response).getScreenMessage());
-			logger.info(((CheckOutResponse) response).getScreenMessage());
-			//System.out.println( ((CheckOutResponse) response).getScreenMessage());
+			if (((CheckOutResponse) response).isOk()) {
+				logger.info("Checkout performed successfully.");
+			} else {
+				logger.info("Checkout couldn't be carried out.{}",  ((CheckOutResponse) response).getScreenMessage());
+				logger.debug(((CheckOutResponse) response).toString());
+			}
 		}
 		try {
 			logger.debug("Patron name {}", ((PatronInformationResponse)response).getPersonalName());
@@ -230,8 +234,12 @@ public class Main {
 			System.err.println("Error - CheckIn Request did not return valid response from server");
 			System.exit(Errors.ERROR_INVALID_CHECKIN_REQUEST);
 		} else {
-			logger.debug( ((CheckInResponse) response).getScreenMessage());
-			System.out.println( ((CheckInResponse) response).getScreenMessage());
+			if (((CheckInResponse) response).isOk()) {
+				logger.info("Checkin performed successfully.");
+			} else {
+				logger.info("Checkin couldn't be carried out.{}",  ((CheckInResponse) response).getScreenMessage());
+				logger.debug(((CheckInResponse) response).toString());
+			}
 		}
 		try {
 			logger.debug("Patron name {}", ((PatronInformationResponse)response).getPersonalName());
