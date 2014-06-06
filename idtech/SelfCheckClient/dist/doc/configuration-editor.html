@@ -1,0 +1,467 @@
+<h2>SelfIssue Configuration Editor</h2><p>The SelfIssue Configuration Editor provides a GUI editor for the contents of the config.xml file for the Self Issue Client. On running the editor it will automatically load the current config.xml values.</p><img src="images/selfissue.png"><p>Menu options: Reload - loads the values stored in the config.xml file (i.e. undoes any edits): Save - saves any changes to the config.xml file; Default - loads the default settings (stored in default.xml); View XML - displays the XML file of the currently loaded values</p><h3>UI - SelfIssue</h3><p>Determines the main window settings used throughout the client application</p><img src="images/ui-selfissue.png"><p>
+<ul>
+<li>
+<b>RightIcon_Icon</b>: Header right hand image file. Images should be stored in the res directory</li>
+<li>
+<b>LeftIcon_Icon</b>: Header left hand image file. Images should be stored in the res directory</li>
+<li>
+<b>TitleText_Text</b>: Main title text</li>
+<li>
+<b>TitleText_Font</b>: Main title text font</li>
+<li>
+<b>TitleText_Size</b>: Main title text size</li>
+<li>
+<b>LibraryText_Text</b>: Subtitle text</li>
+<li>
+<b>LibraryText_Font</b>: Subtitle text font</li>
+<li>
+<b>LibraryText_Size</b>: Subtitle text size</li>
+</ul>
+</p><h3>UI - Palette</h3><p>Configures the colours used by the application</p><img src="images/ui-palette.png"><p>
+<ul>
+<li>
+<b>OuterBorderColour</b>: Colour of window outer border</li>
+<li>
+<b>InnerBorderColour</b>: Colour of window inner border</li>
+<li>
+<b>TitleBackgroundColour</b>: Background colour of title area</li>
+<li>
+<b>BackgroundColour</b>: Background colour of main window</li>
+<li>
+<b>TitleTextColour</b>: Colour of title at top of window</li>
+<li>
+<b>DefaultTextColour</b>: Default colour for text</li>
+<li>
+<b>WarningTextColour</b>: Colour used in messages when indicated by &lt;em&gt;</li>
+<li>
+<b>VersionTextColour</b>: Colour for version text at bottom of window</li>
+<li>
+<b>ButtonTextColour</b>: Colour of text in buttons</li>
+<li>
+<b>ButtonBackgroundColour</b>: Colour of buttons</li>
+</ul>
+</p><h3>UI - PatronPanel</h3><p>Patron panel settings</p><img src="images/ui-patronpanel.png"><p>
+<ul>
+<li>
+<b>PatronSalutation_Text</b>: Initial greeting to patron</li>
+<li>
+<b>CardIcon_Icon</b>: Main picture (typically an example reader card). Images should be stored in the res directory</li>
+<li>
+<b>PatronFieldLabel_Text</b>: Label for patron barcode edit box</li>
+<li>
+<b>PatronFieldLabel_ToolTipText</b>: Tooltip for patron barcode edit box label</li>
+<li>
+<b>PatronField_DefaultText</b>: Default text in patron barcode edit box (normally blank)</li>
+<li>
+<b>PatronField_ToolTipText</b>: Tool tip for patron barcode edit box</li>
+<li>
+<b>PatronPasswordPrompt</b>: Text if patron asked for password</li>
+<li>
+<b>PatronPanelNextButton_Text</b>: Next button text</li>
+<li>
+<b>PatronPanelNextButton_ToolTipText</b>: Next button tool tip text</li>
+<li>
+<b>PatronPanelResetButton_Text</b>: Reset button text</li>
+<li>
+<b>PatronPanelResetButton_ToolTipText</b>: Reset button tool tip text</li>
+</ul>
+</p><h3>UI - CheckOutPanel</h3><p>Checkout Panel Settings</p><img src="images/ui-checkoutpanel.png"><p>
+<ul>
+<li>
+<b>BooksIcon_Icon</b>: Main image.  Images should be stored in the res directory</li>
+<li>
+<b>PatronText_DefaultText</b>: Default greeting to patrong</li>
+<li>
+<b>PatronText_ToolTipText</b>: Tooltip text on patron information</li>
+<li>
+<b>StatusText_DefaultText</b>: Default status text</li>
+<li>
+<b>StatusText_ToolTipText</b>: Tooltip text for status information</li>
+<li>
+<b>BookFieldLabel_Text</b>: Label for book barcode edit box</li>
+<li>
+<b>BookFieldLabel_ToolTipText</b>: Tooltip for book barcode edit box label</li>
+<li>
+<b>BookField_DefaultText</b>: Default text for book barcode edit box (normally blank)</li>
+<li>
+<b>BookField_ToolTipText</b>: Tool tip for book barcode edit box</li>
+<li>
+<b>CheckoutButton_Text</b>: Checkout button text</li>
+<li>
+<b>CheckoutButton_ToolTipText</b>: Checkout button tool tip</li>
+<li>
+<b>BookPanelNextButton_Text</b>: Finish button text</li>
+<li>
+<b>BookPanelNextButton_ToolTipText</b>: Finish button tooltip</li>
+<li>
+<b>BookPanelCheckinButton_Text</b>: Start checkin button text</li>
+<li>
+<b>BookPanelCheckinButton_ToolTipText</b>: Start checkin button tooltip</li>
+</ul>
+</p><h3>UI - CheckInPanel</h3><p>Checkin Panel Settings</p><img src="images/ui-checkinpanel.png"><p>
+<ul>
+<li>
+<b>BooksIcon_Icon</b>: Main image.  Images should be stored in the res directory</li>
+<li>
+<b>PatronText_DefaultText</b>: Default greeting to patrong</li>
+<li>
+<b>PatronText_ToolTipText</b>: Tooltip text on patron information</li>
+<li>
+<b>StatusText_DefaultText</b>: Default status text</li>
+<li>
+<b>StatusText_ToolTipText</b>: Tooltip text for status information</li>
+<li>
+<b>BookFieldLabel_Text</b>: Label for book barcode edit box</li>
+<li>
+<b>BookFieldLabel_ToolTipText</b>: Tooltip for book barcode edit box label</li>
+<li>
+<b>BookField_DefaultText</b>: Default text for book barcode edit box (normally blank)</li>
+<li>
+<b>BookField_ToolTipText</b>: Tool tip for book barcode edit box</li>
+<li>
+<b>CheckoutButton_Text</b>: Checkout button text</li>
+<li>
+<b>CheckoutButton_ToolTipText</b>: Checkout button tool tip</li>
+<li>
+<b>BookPanelNextButton_Text</b>: Finish button text</li>
+<li>
+<b>BookPanelNextButton_ToolTipText</b>: Finish button tooltip</li>
+<li>
+<b>BookPanelCheckoutButton_Text</b>: Start checkout button text</li>
+<li>
+<b>BookPanelCheckoutButton_ToolTipText</b>: Start checkout button tooltip</li>
+</ul>
+</p><h3>UI - Messages</h3><p>Allows configuration of the various messages displayed by the application. {0}, {1} etc. will be replaced by message specific strings. Some of the messages support limited html formatting using: &lt;strong&gt; for bold text; &lt;em&gt; to display in the warning colour defined in the colour palette</p><img src="images/ui-messages.png"><p>
+<ul>
+<li>
+<b>GreetPatronCheckout</b>: {0} = patron name or barcode</li>
+<li>
+<b>GreetPatronCheckin</b>: {0} = patron name or barcode</li>
+<li>
+<b>CheckingPatronMessage</b>: {0} = item barcode</li>
+<li>
+<b>InvalidPatronBarcode</b>: {0} = patron barcode</li>
+<li>
+<b>PatronRetry</b>: No substitutes</li>
+<li>
+<b>PatronNetworkError</b>: {0} = patron barcode</li>
+<li>
+<b>InvalidPatronError</b>: {0} = patron barcode</li>
+<li>
+<b>BlockedPatronError</b>: {0} = message from server</li>
+<li>
+<b>UnexpectedPatronError</b>: No substitutes</li>
+<li>
+<b>CheckoutPendingMessage</b>: {0} = item barcode</li>
+<li>
+<b>InvalidItemBarcode</b>: No substitutes</li>
+<li>
+<b>CheckoutRetry</b>: No substitutes</li>
+<li>
+<b>CheckOutSuccess</b>: {0} = item title or barcode</li>
+<li>
+<b>DueDateMessage</b>: {0} = date due</li>
+<li>
+<b>NoDueDateMessage</b>: No substitutes</li>
+<li>
+<b>CheckoutNetworkError</b>: {0} = item name or barcode</li>
+<li>
+<b>CheckoutFailedError</b>: {0} = item name or barcode</li>
+<li>
+<b>UnexpectedCheckoutError</b>: {0} = item name or barcode</li>
+<li>
+<b>UnlockFailedError</b>: {0} = item name or barcode</li>
+<li>
+<b>UnlockFailedCheckInFailedError</b>: {0} = item name or barcode</li>
+<li>
+<b>CheckInSuccess</b>: {0} = item name or barcode; {1] = message from server</li>
+<li>
+<b>CheckinNetworkError</b>: {0} = item name or barcode</li>
+<li>
+<b>CheckinFailedError</b>: {0} = item name or barcode; {1] = message from server</li>
+<li>
+<b>UnexpectedCheckinError</b>: {0} = item name or barcode</li>
+<li>
+<b>LockFailedError</b>: {0} = item name or barcode</li>
+<li>
+<b>CheckinPendingMessage</b>: {0} = item barcode</li>
+</ul>
+</p><h3>UI - Audio</h3><p>Audio feedback for messages. Remove the entries for silent operation. Audio files should be stored in the res directory</p><img src="images/ui-audio.png"><p>
+<ul>
+<li>
+<b>ValidPatron</b>: Audio cue on valid patron</li>
+<li>
+<b>CheckoutSuccess</b>: Audio cue on check out</li>
+<li>
+<b>CheckinSuccess</b>: Audio cue on check out</li>
+<li>
+<b>PatronRetry</b>: Audio cue on re enter patron id</li>
+<li>
+<b>CheckoutRetry</b>: Audio cue on re enter last book</li>
+<li>
+<b>CheckinRetry</b>: Audio cue on re enter last book</li>
+<li>
+<b>InvalidPatronBarcode</b>: Audio cue on invalid patron barcode</li>
+<li>
+<b>PatronNetworkError</b>: Audio cue on network error checking patron</li>
+<li>
+<b>InvalidPatronError</b>: Audio cue on invalid patron</li>
+<li>
+<b>BlockedPatronError</b>: Audio cue on patron account blocked</li>
+<li>
+<b>UnexpectedPatronError</b>: Audio cue on unknown error checking patron id</li>
+<li>
+<b>InvalidItemBarcode</b>: Audio cue on invalid item barcode</li>
+<li>
+<b>CheckoutNetworkError</b>: Audio cue on network error on check out</li>
+<li>
+<b>CheckoutFailedError</b>: Audio cue on checkout failed</li>
+<li>
+<b>UnexpectedCheckoutError</b>: Audio cue on unknown error during checkout</li>
+<li>
+<b>UnlockFailedError</b>: Audio cue on unlock security on item failed</li>
+<li>
+<b>UnlockFailedCheckinFailedError</b>: Audio cue on item unlocked but check out could not be undone</li>
+<li>
+<b>CheckinNetworkError</b>: Audio cue on network error on check in</li>
+<li>
+<b>CheckinFailedError</b>: Audio cue on checkin failed</li>
+<li>
+<b>UnexpectedCheckinError</b>: Audio cue on unknown error during checkin</li>
+<li>
+<b>LockFailedError</b>: Audio cue on lock security on item failed</li>
+<li>
+<b>LockFailedCheckoutFailedError</b>: Audio cue on item locked but check in could not be undone</li>
+</ul>
+</p><h3>UI - Validation</h3><p>Pattern matching check on entered barcodes - remove for no validation</p><img src="images/ui-validation.png"><p>
+<ul>
+<li>
+<b>PatronBarcodeMask</b>: The default setting of (2\d{6})|([1-9a-zA-Z][\w,. -]+ will accept a barcode consisting of seven digits beginning with the digit 2; or a name (alphabetical input including space)</li>
+<li>
+<b>ItemBarcodeMask</b>: The default value of [P|T|R]\d{6}|3\d{8}|([1-9a-zA-Z][\w,. -]+) will accept a 9 digit barcode beginning with 3; a 7 digit barcode beginning with P, T or R; or an alphanumeric titles</li>
+</ul>
+</p><h3>UI - Control</h3><p>Determines miscellaneous behaviour.</p><img src="images/ui-control.png"><p>
+<ul>
+<li>
+<b>ResetTimeout</b>: Idle time in seconds before the software resets to the patron screen</li>
+<li>
+<b>StripPatronChecksumDigit</b>: Remove final digit from patron barcodes</li>
+<li>
+<b>StripItemChecksumDigit</b>: Remove final digit from item barcodes</li>
+<li>
+<b>PersistentQueueImplementation</b>: Implementation of persistent queue for spoolers. Default is com.gaborcselle.persistent.PersistentQueue. com.ceridwen.util.collections.PersistentQueue is deprecated but available for backwards compatibility for Self Issue 2.61 or earlier. Note: the spooled object store is not compatible between these implementations. You will need to use a different spool path, or delete the existing spools if you change the implementation.</li>
+</ul>
+</p><h3>UI - WatchDog</h3><p>The SelfIssue client has a Watch dog thread which periodically checks the health of the client.</p><img src="images/ui-watchdog.png"><p>
+<ul>
+<li>
+<b>Timer</b>: How often to check health (seconds)</li>
+<li>
+<b>CriticalSectionThreshold</b>: Number of consecutive health checks in critical section (e.g. communication with 3M server still active) to cause fatal error log</li>
+<li>
+<b>MinimumMemory</b>: Minimum working memory before causing fatal error log</li>
+<li>
+<b>ShowOutOfOrderScreenOnWatchDogProblem</b>: Show Out Of Order screen if memory low or too long in critical section</li>
+<li>
+<b>ShowOutOfOrderScreenOnUnhandledException</b>: Show Out Of Order screen if unhandled exception happens</li>
+</ul>
+</p><h3>Systems - SIP</h3><p>This contains the connection details for the 3M SIP server. Currently supports 3M SIP2 over Telnet or Socket</p><img src="images/systems-sip.png"><p>
+<ul>
+<li>
+<b>Host</b>: IP address of 3M SIP server</li>
+<li>
+<b>Port</b>: IP Port of 3M SIP Server (typically 23 for telnet)</li>
+<li>
+<b>TelnetUsername</b>: For telnet, telnet username</li>
+<li>
+<b>TelnetPassword</b>: For telnet, telnet password</li>
+<li>
+<b>LoggedOnText</b>: For telnet, text string to look for to determine succesful login</li>
+<li>
+<b>LoginUserId</b>: If required, 3M SIP2 Username to be set on via 3M SIP2  logon message</li>
+<li>
+<b>LoginPassword</b>: If required, 3M SIP2 password to be set on via 3M SIP2 logon message</li>
+<li>
+<b>LocationCode</b>: If required a location code to be sent via 3M SIP2 login message</li>
+<li>
+<b>UIDAlgorithm</b>: If required the UIDAlgorithm used by the 3M SIP2 server for the 3M SIP2 Login message</li>
+<li>
+<b>PWDAlgorithm</b>: If required, the 3M SIP2 Algorithm used by the 3M Server for the 3M SIP2 Login message</li>
+<li>
+<b>ConnectionTimeout</b>: Time (seconds) to wait during initial connection</li>
+<li>
+<b>IdleTimeout</b>: Time (seconds) to wait when awaiting response to a transaction</li>
+<li>
+<b>RetryAttempts</b>: Number of reconnection attempts if initial connection fails</li>
+<li>
+<b>RetryWait</b>: Time (ms) to wait between connection retries</li>
+<li>
+<b>AddSequenceAndChecksum</b>: Add sequence and checksum to requests - may be required by some 3M SIP2 servers</li>
+<li>
+<b>StrictChecksumChecking</b>: If true reject responses from 3M SIP2 server if the checksum is not valid</li>
+<li>
+<b>StrictSequenceChecking</b>: If true reject responses from 3M SIP2 server if the sequence check digit is not valid</li>
+<li>
+<b>CharsetEncoding</b>: Character set encoding</li>
+<li>
+<b>InstitutionId</b>: If required, send an institutional id on 3M SIP2 messages to server</li>
+<li>
+<b>TerminalPassword</b>: If required, send an termninal password on 3M SIP2 messages to server</li>
+<li>
+<b>SendEndPatronSession</b>: (Optional - may depend on 3M SIP implementation). Send an 3M SIP2 End Patron Session on discconect from server</li>
+<li>
+<b>RequirePatronPassword</b>: Optional, prompt user for password after entering barcode and before allowing book issue.</li>
+<li>
+<b>mode</b>: Communication mode: Socket or Telnet</li>
+</ul>
+</p><h3>Systems - PatronIDReaderDevice</h3><p>This allows optional support for local security tagging and gates. The included class works with JavaCard RFID devices.</p><img src="images/systems-patronidreaderdevice.png"><p>
+<ul>
+<li>
+<b>SmartCardReader</b>: Device name as defined in JavaSmart card API</li>
+<li>
+<b>class</b>: Implementation class (currently JavaSmartCard or null device)</li>
+</ul>
+</p><h3>Systems - ItemIDReaderDevice</h3><p>This allows optional support for local security tagging and gates. The included class works with JavaCard RFID devices.</p><img src="images/systems-itemidreaderdevice.png"><p>
+<ul>
+<li>
+<b>SmartCardReader</b>: Device name as defined in JavaSmart card API</li>
+<li>
+<b>class</b>: Implementation class (currently JavaSmartCard or null device)</li>
+</ul>
+</p><h3>Systems - ItemSecurityDevice</h3><p>This allows optional support for local security tagging and gates.</p><img src="images/systems-itemsecuritydevice.png"><p>
+<ul>
+<li>
+<b>Retries</b>: Number of retries if initial attempt to desensitize device fails</li>
+<li>
+<b>Timeout</b>: Time (ms) to wait for security device</li>
+<li>
+<b>class</b>: Implementation class</li>
+</ul>
+</p><h3>Systems - Printer</h3><p>This allows optional receipt printing</p><img src="images/systems-printer.png"><p>
+<ul>
+<li>
+<b>PrintReceipt</b>: If true print receipt to default printer</li>
+</ul>
+</p><h3>Systems - Loggers</h3><p>The loggers will log activity of the client via e-mail, syslog or a simple REST API. Typically these are used to alert staff when a manual intervention is required (for example a book checked out whilst offline cannot be automatically checked out by the 3M server). However, they can be used to log every activity of the client. Multiple loggers (for different purposes) can be defined.</p><img src="images/systems-loggers.png"><p>
+<ul>
+<li>
+<b>CheckoutSuccess</b>: E-Mail with subject "Self Issue Checkout Report: Checkout Success Notification (no action required)" will be sent whenever a checkout is successfully performed on the 3M server (and reported to the user). It is anticipated that this would normally be suppressed unless a full record of activity is needed.</li>
+<li>
+<b>CheckoutFailure</b>: E-Mail with subject "Self Issue Checkout Report: Checkout Failure Notification (no action required)" whenever a checkout cannot be completed and the user is informed that the checkout has failed. This would normally be suppressed, but might be required to be recorded if there is a danger that the user would attempt to remove the item anyway.</li>
+<li>
+<b>CheckoutPending</b>: E-Mail with subject "Self Issue Checkout Report: Checkout Pending Notification (no action required)". An item has been issued to an user when the 3M system was unavailable, and the checkout request has been spooled for an abnormally long amount of time. This is a warning message that there may be a problem with the Self Issue client's communication with the 3M server, the 3M server has been unavailable for an abnormal amount of time, or there is a network problem. No action is required as the client will continue to attempt to commit the checkout, but these warning should be kept in case of a synchronisation mismatch (e.g. if the patron returns the item before the checkout can be committed)</li>
+<li>
+<b>ManualCheckout</b>: (ii) the item was spooled in Offline mode, but the 3M server has not been available for the designated maximum life an item can be kept in the spooler</li>
+<li>
+<b>Notification</b>: It is anticipated that this would normally be suppressed unless a full record of activity is needed.</li>
+<li>
+<b>UnlockFailure</b>: Applicable for security system support - sends a message if security device on item could not be unlocked successfully. Action may be required, but the user would be prompted to retry. An attempt is made to cancel the checkout.</li>
+<li>
+<b>CancelCheckoutFailure</b>: Applicable for security system support - sends a message if a cancel checkout could not be performed after an unlock failure. Action may be required - the user is warned that the book is checked out but still alarmed and advised to consult a member of staff</li>
+<li>
+<b>UnlockSuccess</b>: Applicable for security system support - sends a message if security device on item was unlocked successfully. It is anticipated that this would normally be suppressed unless a full record of activity is needed</li>
+<li>
+<b>CheckinSuccess</b>: E-Mail with subject "Self Issue Checkin Report: Checkin Success Notification (no action required)" will be sent whenever a checkin is successfully performed on the 3M server (and reported to the user). It is anticipated that this would normally be suppressed unless a full record of activity is needed.</li>
+<li>
+<b>CheckinFailure</b>: E-Mail with subject "Self Issue Checkin Report: Checkin Failure Notification (no action required)" whenever a checkin cannot be completed and the user is informed that the checkin has failed. This would normally be suppressed, but might be required to be recorded if there is a danger that the user would attempt to remove the item anyway.</li>
+<li>
+<b>CheckinPending</b>: E-Mail with subject "Self Issue Checkin Report: Checkin Pending Notification (no action required)" An item has been issued to an user when the 3M system was unavailable, and the checkout request has been spooled for an abnormally long amount of time. This is a warning message that there may be a problem with the Self Issue client's communication with the 3M server, the 3M server has been unavailable for an abnormal amount of time, or there is a network problem. No action is required as the client will continue to attempt to commit the checkin, but these warning should be kept in case of a synchronisation mismatch (e.g. if the patron returns the item before the checkin can be committed)</li>
+<li>
+<b>LockFailure</b>: Applicable for security system support - sends a message if security device on item could not be locked successfully. Action may be required, but the user would be prompted to retry. An attempt is made to cancel the checkin.</li>
+<li>
+<b>LockSuccess</b>: Applicable for security system support - sends a message if security device on item was locked successfully. It is anticipated that this would normally be suppressed unless a full record of activity is needed</li>
+<li>
+<b>ReplayPeriod</b>: Messages may be spooled if the server to receive them is not available. This indicates how often the spool is checked for stored messages (minutes)</li>
+<li>
+<b>OverdueAgeOutOfOrder</b>: If age (hours) of message in queue exceeds this, force Out Of Order (0 to disable) on the basis there is a severe network problem</li>
+<li>
+<b>Host</b>: Server to send messages to (not used for SMTP logger)</li>
+<li>
+<b>Port</b>: Port to send messages to (not used for SMTP logger)</li>
+<li>
+<b>To</b>: SMTP logger - e-mail address to send reports to</li>
+<li>
+<b>From</b>: SMTP Logger: E-mail address from which reports originate (and to which bounce messages will be sent)</li>
+<li>
+<b>Relay</b>: SMTP Relay address</li>
+<li>
+<b>ConnectionTimeout</b>: Time (seconds) to wait during initial connection</li>
+<li>
+<b>IdleTimeout</b>: Time (seconds) to wait for responses</li>
+<li>
+<b>Spool</b>: File to spool messages waiting to be sent to</li>
+<li>
+<b>class</b>: Type of logger (SMTP, Syslog, REST, or null device)</li>
+</ul>
+</p><h3>Systems - Spooler</h3><p>Local spool for offline stored requests</p><img src="images/systems-spooler.png"><p>
+<ul>
+<li>
+<b>ReplayPeriod</b>: Time (minutes) to replay spooler</li>
+<li>
+<b>OverdueAgeWarn</b>: Time (hours) item can remain in spooler before generating warning message</li>
+<li>
+<b>OverdueAgeExpire</b>: Time (hours) item can remain in spooler before generating manual intervention message</li>
+<li>
+<b>Spool</b>: File to store spooled request</li>
+</ul>
+</p><h3>Modes</h3><p>This section configures the behaviour of the Self Issue client software</p><img src="images/modes.png"><p>
+<ul>
+<li>
+<b>TrustMode</b>: When false, an item will only be reported issued if the 3M server allows the item to be issued; if the 3M server fails the issue the reason will be reported to the end user. When true, an item will always be reported issued. If the issue cannot be committed by the client to the 3M server (e.g. if the borrower has too many items out), a message is sent to the librarian (using the method specified in the Systems/Loggers section) requesting manual intervention.</li>
+<li>
+<b>AllowOffline</b>: When AllowOffline is true, any attempt to issue an item when the 3M server is unavailable will result in the item being reported issued to the user. These transactions are spooled on the client and then played back to the 3M server when it is available again (any items which cannot be committed automatically will generate a message to the librarian using the method specified in Systems/Loggers for manual intervention).</li>
+<li>
+<b>UseNoBlock</b>: Can be set to true if the 3M server supports NoBlock when running in Trust or Offline modes &ndash; in this case the 3M server is responsible for reporting cases where manual intervention is required rather than the self issue client.</li>
+<li>
+<b>RetryPatronWhenError</b>: If running in Trust Mode or Offline Mode the Self Issue client may not be able to confirm that the patron id is valid. If RetryPatronWhenError is false, the Self Issue client will assume that the entered patron id is always valid; if true the Self Issue client will request the patron id to be re-entered if it cannot confirm validity and only continue if the patron id is entered identically twice.</li>
+<li>
+<b>RetryItemWhenError</b>: If running in Trust Mode or Offline Mode the Self Issue client may not be able to confirm that the item id is valid. If RetryItemWhenError is false, the Self Issue client will assume that the entered item id is always valid; if true the Self Issue client will request the item id to be re-entered if it cannot confirm validity and only continue if the item id is entered identically twice.</li>
+<li>
+<b>AllowRenews</b>: If false the 3M server will return an error if an attempt is made to issue an item already checked out to that patron; if true the 3M server will be told to interpret the check-out as a renewal request.</li>
+<li>
+<b>SuppressSecurityFailureMessages</b>: Suppress errors from the Security device</li>
+<li>
+<b>SendShutdownStatus</b>: If true will send a status update to the 3M server when client shuts down</li>
+<li>
+<b>EnableBarcodeAlii</b>: If true allows alii for command interfaces of the form $Command% (e.g. $Shutdown System% for *Shutdown System&brvbar;) This allows commands to be encoded as barcodes e.g. can be entered from a command barcode sheet ($ and % are available in most barcode encoding schemes).</li>
+<li>
+<b>EnableCheckIn</b>: Enables Check In screen as well as check out screen</li>
+</ul>
+</p><h3>CommandInterface</h3><p>Enable various debugging/testing features. The client supports various commands of the form *command| whilst at the patron screen. This can be disabled as required. (commands can also be entered as $command% if EnableBarcodeAlii is enabled under Modes)</p><img src="images/commandinterface.png"><p>
+<ul>
+<li>
+<b>AllowConnectionTest</b>: Allows *Test Connection&brvbar; command in the patron panel (tests SIP connectivity)</li>
+<li>
+<b>AllowSystemsCheck</b>: Allow *Check Systems&brvbar; command in the patron panel (indicates current modes, memory and spool use)</li>
+<li>
+<b>AllowLogTest</b>: Allow *Test Crash&brvbar; command in the patron panel (tests unexpected error handling)</li>
+<li>
+<b>AllowSystemShutdown</b>: Allow *Shutdown System&brvbar; command in the patron panel (closes Self Issue client after password check)</li>
+<li>
+<b>AllowOutOfOrder</b>: Allow *Out Of Order&brvbar; command to switch to Out of Order screen (after password confirmation)</li>
+<li>
+<b>AllowResetOutOfOrder</b>: Allow *Reset Out Of Order&brvbar; typed on Out of Order screen to reset to normal use (after password confirmation)</li>
+<li>
+<b>AllowCheckIn</b>: Allow *Check In&brvbar; to switch to check in screen from patron screen (after password).This allows public check out only station to also be a staff only check in station</li>
+<li>
+<b>SystemPassword</b>: System password required to confirm staff actions such as shutdown and reset out of order (encrypted). Default password is password.</li>
+</ul>
+</p><h3>Logging</h3><p>Allows logging reporting of unexpected errors</p><img src="images/logging.png"><p>
+<ul>
+<li>
+<b>level</b>: Level of debug event to log (SEVERE, WARNING, INFO, CONFIG, FINE, FINER,FINEST, ALL)</li>
+<li>
+<b>smtpServer</b>: SMTP server (for SMTP logging)</li>
+<li>
+<b>sender</b>: SMTP sender (for SMTP logging)</li>
+<li>
+<b>recipients</b>: SMTP recipients (for SMTP logging)</li>
+<li>
+<b>syslogHost</b>: syslog host (for syslog logging)</li>
+<li>
+<b>syslogPort</b>: syslog port (for syslog logging)</li>
+<li>
+<b>URL</b>: URL (for REST logging)</li>
+<li>
+<b>class</b>: Type of logger: SMTP, Syslog, REST</li>
+</ul>
+</p>
