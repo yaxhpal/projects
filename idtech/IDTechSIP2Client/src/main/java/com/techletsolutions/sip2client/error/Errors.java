@@ -37,4 +37,8 @@ public class Errors {
 	public static final Integer ERROR_LOGGER_COULD_NOT_BE_INITIALIZED = 15;
 
 	public static final int ERROR_CHECKIN_NOT_SUPPORTED = 16;
+
+	public static final int ERROR_PATRON_INFORMATION_SUPPORTED = 17;
+
+	public static final int ERROR_INVALID_PATRON_INFORMATION_REQUEST = 18;
 }

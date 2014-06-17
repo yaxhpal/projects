@@ -19,6 +19,7 @@ import com.ceridwen.circulation.SIP.messages.CheckOutResponse;
 import com.ceridwen.circulation.SIP.messages.Login;
 import com.ceridwen.circulation.SIP.messages.LoginResponse;
 import com.ceridwen.circulation.SIP.messages.Message;
+import com.ceridwen.circulation.SIP.messages.PatronInformation;
 import com.ceridwen.circulation.SIP.messages.PatronInformationResponse;
 import com.ceridwen.circulation.SIP.messages.SCStatus;
 import com.ceridwen.circulation.SIP.transport.SocketConnection;
@@ -113,6 +114,24 @@ public class Main {
 				logger.error("Error - Status Request did not return valid response from server.");
 				System.err.println("Error - Status Request did not return valid response from server.");
 				System.exit(Errors.ERROR_STATUS_REQUEST);
+			} else {
+				String info = "DateTimeSync: " + (( ACSStatus) response).getDateTimeSync() + " | " +
+	                    "InstId: " + (( ACSStatus) response).getInstitutionId() + " | " +
+	                    "LibName: " + (( ACSStatus) response).getLibraryName() + " | " +
+	                    "ProtVer: " + (( ACSStatus) response).getProtocolVersion() + " | " +
+	                    "Retries: " + (( ACSStatus) response).getRetriesAllowed() + " | " +
+	                    "SupMsgs: " + (( ACSStatus) response).getSupportedMessages() + " | " +
+	                    "TermLoc: " + (( ACSStatus) response).getTerminalLocation() + " | " +
+	                    "Timeout: " + (( ACSStatus) response).getTimeoutPeriod() + " | " +
+	                    "PrtLine: " + (( ACSStatus) response).getPrintLine() + " | " +
+	                    "SrcnMsg: " + (( ACSStatus) response).getScreenMessage() + " | " +
+	                    "CheckIn: " + (( ACSStatus) response).isCheckInOk() + " | " +
+	                    "CheckOut: " + (( ACSStatus) response).isCheckOutOk() + " | " +
+	                    "Offline: " + (( ACSStatus) response).isOfflineOk() + " | " +
+	                    "Online: " + (( ACSStatus) response).isOnlineStatus() + " | " +
+	                    "Renewal: " + (( ACSStatus) response).isACSRenewalPolicy() + " | " +
+	                    "StatusUpdate: " + (( ACSStatus) response).isStatusUpdateOk();
+				logger.debug(info);
 			}
 		}
 		
@@ -127,6 +146,8 @@ public class Main {
 			checkOut(response, args[1], args[2]);
 		} else if (args[0].equalsIgnoreCase("checkin")) {
 			checkIn(response, args[1]);
+		} else if (args[0].equalsIgnoreCase("info")) {
+			getPatronInfo(response, args[1]);
 		} else {
 			logger.error("Invalid arguments. Command not understood {}.", Arrays.toString(args));
 			System.err.println("Invalid arguments. Command not understood.");
@@ -249,6 +270,57 @@ public class Main {
 		}
 	}
 
+	public void getPatronInfo(Message response, String patronId) {
+		// Check if the server can support checkin
+		if (!((ACSStatus) response).getSupportedMessages().isSet(SupportedMessages.PATRON_INFORMATION)) {
+			logger.error("Patron information not supported {}", response.toString());
+			System.err.println("Patron information supported");
+			System.exit(Errors.ERROR_PATRON_INFORMATION_SUPPORTED);
+		}
+		
+		// The code below would be the normal way of creating the request
+		PatronInformation patronInformationRequest = new PatronInformation();
+		patronInformationRequest.setPatronIdentifier(patronId);
+//		patronInformationRequest.set
+		patronInformationRequest.setTransactionDate(new Date());
+		try {
+			response = connection.send(patronInformationRequest);
+		} catch (Exception e) {
+			logger.error("Error while processing patron information {}", e);
+			SIP2ClientException sip2Exception = new SIP2ClientException(e);
+			System.err.println("Error while processing patron information. code: "+sip2Exception.getError());
+			System.exit(sip2Exception.getError());
+			
+		}
+		if (!(response instanceof PatronInformationResponse)) {
+			logger.error("Error - Patron information Request did not return valid response from server {}", response.toString());
+			System.err.println("Error - Patron information Request did not return valid response from server");
+			System.exit(Errors.ERROR_INVALID_PATRON_INFORMATION_REQUEST);
+		} else {
+			if (((PatronInformationResponse) response).isValidPatron()) {
+				logger.info("Patron information received successfully.");
+			} else {
+				logger.info("Patron information couldn't be received. {}",  ((CheckInResponse) response).getScreenMessage());
+				logger.debug(((PatronInformationResponse) response).toString());
+			}
+		}
+		try {
+			logger.debug("Patron Id {}", ((PatronInformationResponse)response).getPatronIdentifier());
+			logger.debug("Patron name {}", ((PatronInformationResponse)response).getPersonalName());
+			logger.debug("Patron email {}", ((PatronInformationResponse)response).getEmailAddress());
+			logger.debug("Home Address {}", ((PatronInformationResponse)response).getHomeAddress());
+			logger.debug("Fines and charges {}",  ((PatronInformationResponse)response).getFeeAmount());
+			logger.debug("Checked out Items {}", ((PatronInformationResponse)response).getChargedItemsCount());
+			logger.debug("Charge Items {}", Arrays.toString(((PatronInformationResponse)response).getChargedItems()));
+			logger.debug("Fine Items {}", Arrays.toString(((PatronInformationResponse)response).getFineItems()));
+			logger.debug("Hold Items {}", Arrays.toString(((PatronInformationResponse)response).getHoldItems()));
+			logger.debug("Recall Items {}",  Arrays.toString(((PatronInformationResponse)response).getRecallItems()));
+			 response.xmlEncode(System.out);
+		} catch (Exception e) {
+			logger.debug("Could not get patron information.");
+		}
+	}
+	
 	public static void initializeLogger() {
 		org.apache.log4j.Logger rootLogger = org.apache.log4j.Logger.getRootLogger();
 		rootLogger.setLevel(Level.DEBUG);
