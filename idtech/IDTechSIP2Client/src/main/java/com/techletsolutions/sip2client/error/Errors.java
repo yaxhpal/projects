@@ -41,4 +41,6 @@ public class Errors {
 	public static final int ERROR_PATRON_INFORMATION_SUPPORTED = 17;
 
 	public static final int ERROR_INVALID_PATRON_INFORMATION_REQUEST = 18;
+
+	public static final int ERROR_ITEM_INFORMATION_SUPPORTED = 19;
 }

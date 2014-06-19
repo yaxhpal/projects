@@ -16,6 +16,8 @@ import com.ceridwen.circulation.SIP.messages.CheckIn;
 import com.ceridwen.circulation.SIP.messages.CheckInResponse;
 import com.ceridwen.circulation.SIP.messages.CheckOut;
 import com.ceridwen.circulation.SIP.messages.CheckOutResponse;
+import com.ceridwen.circulation.SIP.messages.ItemInformation;
+import com.ceridwen.circulation.SIP.messages.ItemInformationResponse;
 import com.ceridwen.circulation.SIP.messages.Login;
 import com.ceridwen.circulation.SIP.messages.LoginResponse;
 import com.ceridwen.circulation.SIP.messages.Message;
@@ -24,6 +26,7 @@ import com.ceridwen.circulation.SIP.messages.PatronInformationResponse;
 import com.ceridwen.circulation.SIP.messages.SCStatus;
 import com.ceridwen.circulation.SIP.transport.SocketConnection;
 import com.ceridwen.circulation.SIP.types.enumerations.ProtocolVersion;
+import com.ceridwen.circulation.SIP.types.flagfields.Summary;
 import com.ceridwen.circulation.SIP.types.flagfields.SupportedMessages;
 import com.techletsolutions.sip2client.error.Errors;
 import com.techletsolutions.sip2client.exceptions.SIP2ClientException;
@@ -148,6 +151,8 @@ public class Main {
 			checkIn(response, args[1]);
 		} else if (args[0].equalsIgnoreCase("info")) {
 			getPatronInfo(response, args[1]);
+		} else if (args[0].equalsIgnoreCase("iteminfo")) {
+			getItemInfo(response, args[1]);
 		} else {
 			logger.error("Invalid arguments. Command not understood {}.", Arrays.toString(args));
 			System.err.println("Invalid arguments. Command not understood.");
@@ -281,7 +286,7 @@ public class Main {
 		// The code below would be the normal way of creating the request
 		PatronInformation patronInformationRequest = new PatronInformation();
 		patronInformationRequest.setPatronIdentifier(patronId);
-//		patronInformationRequest.set
+		patronInformationRequest.getSummary().set(Summary.CHARGED_ITEMS);
 		patronInformationRequest.setTransactionDate(new Date());
 		try {
 			response = connection.send(patronInformationRequest);
@@ -315,6 +320,51 @@ public class Main {
 			logger.debug("Fine Items {}", Arrays.toString(((PatronInformationResponse)response).getFineItems()));
 			logger.debug("Hold Items {}", Arrays.toString(((PatronInformationResponse)response).getHoldItems()));
 			logger.debug("Recall Items {}",  Arrays.toString(((PatronInformationResponse)response).getRecallItems()));
+			 response.xmlEncode(System.out);
+		} catch (Exception e) {
+			logger.debug("Could not get patron information.");
+		}
+	}
+	
+	
+	public void getItemInfo(Message response, String itemId) {
+		// Check if the server can support checkin
+		if (!((ACSStatus) response).getSupportedMessages().isSet(SupportedMessages.ITEM_INFORMATION)) {
+			logger.error("Item information not supported {}", response.toString());
+			System.err.println("Item information supported");
+			System.exit(Errors.ERROR_ITEM_INFORMATION_SUPPORTED);
+		}
+		
+		// The code below would be the normal way of creating the request
+		ItemInformation itemInformationRequest = new ItemInformation();
+		itemInformationRequest.setItemIdentifier(itemId);
+//		patronInformationRequest.set
+		itemInformationRequest.setTransactionDate(new Date());
+		try {
+			response = connection.send(itemInformationRequest);
+		} catch (Exception e) {
+			logger.error("Error while processing item information {}", e);
+			SIP2ClientException sip2Exception = new SIP2ClientException(e);
+			System.err.println("Error while processing patron information. code: "+sip2Exception.getError());
+			System.exit(sip2Exception.getError());
+			
+		}
+		ItemInformationResponse itemInformationResponse = null;
+		
+		if (!(response instanceof ItemInformationResponse)) {
+			logger.error("Error - Item information Request did not return valid response from server {}", response.toString());
+			System.err.println("Error - Item information Request did not return valid response from server");
+			System.exit(Errors.ERROR_INVALID_PATRON_INFORMATION_REQUEST);
+		} else {
+			itemInformationResponse = (ItemInformationResponse)response;
+//			if (((ItemInformationResponse) response).) {
+//				logger.info("Patron information received successfully.");
+//			} else {
+//				logger.info("Patron information couldn't be received. {}",  ((CheckInResponse) response).getScreenMessage());
+//				logger.debug(((PatronInformationResponse) response).toString());
+//			}
+		}
+		try {
 			 response.xmlEncode(System.out);
 		} catch (Exception e) {
 			logger.debug("Could not get patron information.");

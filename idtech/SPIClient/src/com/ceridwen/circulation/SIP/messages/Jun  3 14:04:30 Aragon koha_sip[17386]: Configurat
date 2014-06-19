@@ -1,0 +1,22 @@
+Jun  3 14:04:30 Aragon koha_sip[17386]: Configuration::find_service: Trying 6001/tcp
+Jun  3 14:04:30 Aragon koha_sip[17386]: Configuration::find_service: Trying *:6001/tcp
+Jun  3 14:04:30 Aragon koha_sip[17386]: Configuration::find_service: Trying 127.0.0.1:6001/tcp
+Jun  3 14:04:30 Aragon koha_sip[17386]: raw_transport: uname/inst: 'term1/CPL'
+Jun  3 14:04:30 Aragon koha_sip[17386]: read_SIP_packet, INPUT MSG: '9900002.00AY0AZFCA9'
+Jun  3 14:04:30 Aragon koha_sip[17386]: read_SIP_packet, INPUT MSG: '9900002.00AY0AZFCA9'
+Jun  3 14:04:30 Aragon koha_sip[17386]: INPUT MSG: '9900002.00AY0AZFCA9'
+Jun  3 14:04:30 Aragon koha_sip[17386]: Sip::MsgType::new('Sip::MsgType', '9900002.00...', '99'): seq.no '0', protocol 2
+Jun  3 14:04:30 Aragon koha_sip[17386]: Sip::MsgType::_initialize('SC Status', '00002.00', 'CA3A4', '8', ...)
+Jun  3 14:04:30 Aragon koha_sip[17386]: OUTPUT MSG: '98YYYYNN02500520140603    1404302.00AOCPL|BXYYYYYYYYYYYNYYYY|AY0AZEE7C'
+Jun  3 14:04:31 Aragon koha_sip[17386]: read_SIP_packet, INPUT MSG: '11YN20140603    140431                  AA23529001223637|ABD12345|AC|AO|AY1AZEFFB'
+Jun  3 14:04:31 Aragon koha_sip[17386]: read_SIP_packet, INPUT MSG: '11YN20140603    140431                  AA23529001223637|ABD12345|AC|AO|AY1AZEFFB'
+Jun  3 14:04:31 Aragon koha_sip[17386]: INPUT MSG: '11YN20140603    140431                  AA23529001223637|ABD12345|AC|AO|AY1AZEFFB'
+Jun  3 14:04:31 Aragon koha_sip[17386]: Sip::MsgType::new('Sip::MsgType', '11YN201406...', '11'): seq.no '1', protocol 2
+Jun  3 14:04:31 Aragon koha_sip[17386]: Sip::MsgType::_initialize('Checkout', 'YN20140603    140431                  AA23529001223637|ABD12345|AC|AO|', 'CCA18A18', '38', ...)
+Jun  3 14:04:31 Aragon koha_sip[17386]: new ILS::Patron(23529001223637): found patron '23529001223637'
+Jun  3 14:04:31 Aragon koha_sip[17386]: new ILS::Item('D12345'): found with title '"Building Android Apps with HTML, CSS, and Javascript: Making Native Apps with Standards-based Web Tools"'
+Jun  3 14:04:31 Aragon koha_sip[17386]: ILS::Transaction::Checkout performing checkout...
+Jun  3 14:04:31 Aragon koha_sip[17386]: ILS::Checkout: patron 23529001223637 has checked out D12345
+Jun  3 14:04:31 Aragon koha_sip[17386]: OUTPUT MSG: '121NNY20140603    140431AOCPL|AA23529001223637|ABD12345|AJ"Building Android Apps with HTML, CSS, and Javascript: Making Native Apps with Standards-based Web Tools"|AH20140624    235900|AY1AZC840'
+Jun  3 14:04:31 Aragon koha_sip[17386]: read_SIP_packet input undefined, end of input.
+Jun  3 14:04:31 Aragon koha_sip[17386]: raw_transport: shutting down
