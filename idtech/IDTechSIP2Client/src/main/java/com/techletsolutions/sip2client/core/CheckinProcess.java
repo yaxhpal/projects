@@ -19,11 +19,19 @@ public class CheckinProcess {
 
 	final static Logger logger = LoggerFactory.getLogger(CheckinProcess.class);
 	
-	private static SocketConnection connection;
+	private SocketConnection connection;
 	
+	private Message response;
 	
+	private String borcodes;
 	
-	public void checkIn(Message response, String borcodes) {
+	public CheckinProcess(SocketConnection connection, Message message, String barcodes) {
+		this.connection = connection;
+		this.response = message;
+		this.borcodes = barcodes;
+	}
+	
+	public void execute() {
 		// Check if the server can support checkin
 		if (!((ACSStatus) response).getSupportedMessages().isSet(SupportedMessages.CHECK_IN)) {
 			logger.error("Check out not supported {}", response.toString());
