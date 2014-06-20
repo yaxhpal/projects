@@ -7,14 +7,14 @@ import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Configuration {
-	final static Logger logger = LoggerFactory.getLogger(Configuration.class);
+public class Msg {
+	final static Logger logger = LoggerFactory.getLogger(Msg.class);
 
-	private static final String CONFIGURATION_FILE = "com/ceridwen/selfissue/client/config/config.xml";
+	private static final String CONFIGURATION_FILE = "IDTechSIP2Client.properties";
 
 	private final static Properties prop = new Properties();
 
-	public static String getProperty(String key) {
+	public static String get(String key) {
 		if (prop.isEmpty()) {
 			loadProperties();
 		}
@@ -28,7 +28,7 @@ public class Configuration {
 		logger.debug("Entering into loadProperties");
 		InputStream input = null;
 		try {
-			input = Configuration.class.getClassLoader().getResourceAsStream(
+			input = Msg.class.getClassLoader().getResourceAsStream(
 					CONFIGURATION_FILE);
 			if (input == null) {
 				logger.error("Unable to find property file: " + CONFIGURATION_FILE);
@@ -50,10 +50,10 @@ public class Configuration {
 	}
 
 	public static int getIntProperty(String string) {
-		return Integer.parseInt(getProperty(string));
+		return Integer.parseInt(get(string));
 	}
 
 	public static boolean getBoolProperty(String string) {
-		return Boolean.parseBoolean(getProperty(string));
+		return Boolean.parseBoolean(get(string));
 	}
 }

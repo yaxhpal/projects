@@ -9,67 +9,60 @@ import com.ceridwen.circulation.SIP.messages.ACSStatus;
 import com.ceridwen.circulation.SIP.messages.CheckIn;
 import com.ceridwen.circulation.SIP.messages.CheckInResponse;
 import com.ceridwen.circulation.SIP.messages.Message;
-import com.ceridwen.circulation.SIP.messages.PatronInformationResponse;
 import com.ceridwen.circulation.SIP.transport.SocketConnection;
 import com.ceridwen.circulation.SIP.types.flagfields.SupportedMessages;
+import com.techletsolutions.sip2client.conf.Msg;
 import com.techletsolutions.sip2client.error.Errors;
 import com.techletsolutions.sip2client.exceptions.SIP2ClientException;
 
-public class CheckinProcess {
+public class CheckinProcess extends SIP2Process {
 
 	final static Logger logger = LoggerFactory.getLogger(CheckinProcess.class);
 	
-	private SocketConnection connection;
-	
-	private Message response;
-	
-	private String borcodes;
+	private String barcodes;
 	
 	public CheckinProcess(SocketConnection connection, Message message, String barcodes) {
-		this.connection = connection;
-		this.response = message;
-		this.borcodes = barcodes;
+		super(connection, message);
+		this.barcodes = barcodes;
 	}
 	
-	public void execute() {
+	public int execute() {
+
+		if (barcodes == null) {
+			logger.error(Msg.get("checkin.request.invalid.error"));
+			return Errors.ERROR_INVALID_CHECKIN_REQUEST;
+        }
+		
 		// Check if the server can support checkin
 		if (!((ACSStatus) response).getSupportedMessages().isSet(SupportedMessages.CHECK_IN)) {
-			logger.error("Check out not supported {}", response.toString());
-			System.err.println("Checkin not supported");
-			System.exit(Errors.ERROR_CHECKIN_NOT_SUPPORTED);
+			logger.error(Msg.get("checkin.notsupported.error"), response.toString());
+			return Errors.ERROR_CHECKIN_NOT_SUPPORTED;
 		}
 		
 		// The code below would be the normal way of creating the request
 		CheckIn checkInRequest = new CheckIn();
-		checkInRequest.setItemIdentifier(borcodes);
+		checkInRequest.setItemIdentifier(barcodes);
 		checkInRequest.setReturnDate(new Date());
 		checkInRequest.setTransactionDate(new Date());
+		
 		try {
 			response = connection.send(checkInRequest);
 		} catch (Exception e) {
-			logger.error("Error while processing checkin request {}", e);
-			SIP2ClientException sip2Exception = new SIP2ClientException(e);
-			System.err.println("Error while processing checkin request. code: "+sip2Exception.getError());
-			System.exit(sip2Exception.getError());
-			
+			logger.error(Msg.get("error.checkin.connection"), e);
+			return (new SIP2ClientException(e)).getError();
 		}
 		if (!(response instanceof CheckInResponse)) {
-			logger.error("Error - CheckIn Request did not return valid response from server {}", response.toString());
-			System.err.println("Error - CheckIn Request did not return valid response from server");
-			System.exit(Errors.ERROR_INVALID_CHECKIN_REQUEST);
+			logger.error(Msg.get("checkin.reponse.invalid.error"), response.toString());
+			return Errors.ERROR_INVALID_CHECKIN_REQUEST;
 		} else {
 			if (((CheckInResponse) response).isOk()) {
-				logger.info("Checkin performed successfully.");
+				logger.info(Msg.get("checkin.success"), barcodes);
 			} else {
-				logger.info("Checkin couldn't be carried out.{}",  ((CheckInResponse) response).getScreenMessage());
+				logger.info(Msg.get("checkin.failed.error"),  ((CheckInResponse) response).getScreenMessage());
 				logger.debug(((CheckInResponse) response).toString());
+				return Errors.ERROR_CHECKIN_FAILED;
 			}
 		}
-		try {
-			logger.debug("Patron name {}", ((PatronInformationResponse)response).getPersonalName());
-			logger.debug("Patron email {}", ((PatronInformationResponse)response).getEmailAddress());
-		} catch (Exception e) {
-			logger.debug("Could not get patron information.");
-		}
+		return Errors.NO_ERROR;
 	}
 }

@@ -48,9 +48,9 @@ public class SIP2ClientException extends Exception {
 			} else if ( t instanceof MandatoryFieldOmitted) {
 				return Errors.ERROR_MANDATORY_FIELD_OMITTED;
 			} else {
-				return Errors.UNKNOWN_ERROR;
+				//TODO write handler here
 			}
 		}
-		return Errors.NO_ERROR;
+		return Errors.UNKNOWN_ERROR;
 	}
 }
