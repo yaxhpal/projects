@@ -12,10 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.ceridwen.circulation.SIP.messages.ACSStatus;
-import com.ceridwen.circulation.SIP.messages.CheckIn;
 import com.ceridwen.circulation.SIP.messages.CheckInResponse;
-import com.ceridwen.circulation.SIP.messages.CheckOut;
-import com.ceridwen.circulation.SIP.messages.CheckOutResponse;
 import com.ceridwen.circulation.SIP.messages.ItemInformation;
 import com.ceridwen.circulation.SIP.messages.ItemInformationResponse;
 import com.ceridwen.circulation.SIP.messages.Login;
@@ -28,6 +25,8 @@ import com.ceridwen.circulation.SIP.transport.SocketConnection;
 import com.ceridwen.circulation.SIP.types.enumerations.ProtocolVersion;
 import com.ceridwen.circulation.SIP.types.flagfields.Summary;
 import com.ceridwen.circulation.SIP.types.flagfields.SupportedMessages;
+import com.techletsolutions.sip2client.core.CheckinProcess;
+import com.techletsolutions.sip2client.core.CheckoutProcess;
 import com.techletsolutions.sip2client.error.Errors;
 import com.techletsolutions.sip2client.exceptions.SIP2ClientException;
 
@@ -146,9 +145,13 @@ public class Main {
 		} else if (args[0].equalsIgnoreCase("login")) {
 			login(response, args[1], args[2]);
 		} else if (args[0].equalsIgnoreCase("checkout")) {
-			checkOut(response, args[1], args[2]);
+			CheckoutProcess ckout = new CheckoutProcess(connection, response,  args[1], args[2]);
+			System.exit(ckout.execute());
+			// checkOut(response, args[1], args[2]);
 		} else if (args[0].equalsIgnoreCase("checkin")) {
-			checkIn(response, args[1]);
+			CheckinProcess ckin = new CheckinProcess(connection, response,  args[1]);
+			System.exit(ckin.execute());
+			//checkIn(response, args[1]);
 		} else if (args[0].equalsIgnoreCase("info")) {
 			getPatronInfo(response, args[1]);
 		} else if (args[0].equalsIgnoreCase("iteminfo")) {
@@ -187,91 +190,6 @@ public class Main {
 				System.err.println("Failed to login. There was unknown error.");
 				System.exit(Errors.ERROR_INVALID_LOGIN_REQUEST);
 			}
-		}
-	}
-
-	public void checkOut(Message response, String patronId, String borcodes) {
-		// Check if the server can support checkout
-		if (!((ACSStatus) response).getSupportedMessages().isSet(SupportedMessages.CHECK_OUT)) {
-			logger.error("Check out not supported {}", response.toString());
-			System.err.println("Check out not supported");
-			System.exit(Errors.ERROR_CHECKOUT_NOT_SUPPORTED);
-		}
-
-		// The code below would be the normal way of creating the request
-		CheckOut checkOutRequest = new CheckOut();
-		checkOutRequest.setPatronIdentifier(patronId);
-		checkOutRequest.setItemIdentifier(borcodes);
-		checkOutRequest.setSCRenewalPolicy(Boolean.TRUE);
-		checkOutRequest.setTransactionDate(new Date());
-		try {
-			response = connection.send(checkOutRequest);
-		} catch (Exception e) {
-			logger.error("Error while processing checkout request {}", e);
-			SIP2ClientException sip2Exception = new SIP2ClientException(e);
-			System.err.println("Error while processing checkout request. code: "+sip2Exception.getError());
-			System.exit(sip2Exception.getError());
-		} 
-
-		if (!(response instanceof CheckOutResponse)) {
-			logger.error("Error - CheckOut Request did not return valid response from server {}", response.toString());
-			System.err.println("Error - CheckOut Request did not return valid response from server.");
-			System.exit(Errors.ERROR_INVALID_CHECKOUT_REQUEST);
-		} else {
-			if (((CheckOutResponse) response).isOk()) {
-				logger.info("Checkout performed successfully.");
-			} else {
-				logger.info("Checkout couldn't be carried out.{}",  ((CheckOutResponse) response).getScreenMessage());
-				logger.debug(((CheckOutResponse) response).toString());
-			}
-		}
-		try {
-			logger.debug("Patron name {}", ((PatronInformationResponse)response).getPersonalName());
-			logger.debug("Patron email {}", ((PatronInformationResponse)response).getEmailAddress());
-		} catch (Exception e) {
-			logger.debug("Could not get patron information.");
-		}
-	}
-
-	public void checkIn(Message response, String borcodes) {
-		// Check if the server can support checkin
-		if (!((ACSStatus) response).getSupportedMessages().isSet(SupportedMessages.CHECK_IN)) {
-			logger.error("Check out not supported {}", response.toString());
-			System.err.println("Checkin not supported");
-			System.exit(Errors.ERROR_CHECKIN_NOT_SUPPORTED);
-		}
-		
-		// The code below would be the normal way of creating the request
-		CheckIn checkInRequest = new CheckIn();
-		checkInRequest.setItemIdentifier(borcodes);
-		checkInRequest.setReturnDate(new Date());
-		checkInRequest.setTransactionDate(new Date());
-		try {
-			response = connection.send(checkInRequest);
-		} catch (Exception e) {
-			logger.error("Error while processing checkin request {}", e);
-			SIP2ClientException sip2Exception = new SIP2ClientException(e);
-			System.err.println("Error while processing checkin request. code: "+sip2Exception.getError());
-			System.exit(sip2Exception.getError());
-			
-		}
-		if (!(response instanceof CheckInResponse)) {
-			logger.error("Error - CheckIn Request did not return valid response from server {}", response.toString());
-			System.err.println("Error - CheckIn Request did not return valid response from server");
-			System.exit(Errors.ERROR_INVALID_CHECKIN_REQUEST);
-		} else {
-			if (((CheckInResponse) response).isOk()) {
-				logger.info("Checkin performed successfully.");
-			} else {
-				logger.info("Checkin couldn't be carried out.{}",  ((CheckInResponse) response).getScreenMessage());
-				logger.debug(((CheckInResponse) response).toString());
-			}
-		}
-		try {
-			logger.debug("Patron name {}", ((PatronInformationResponse)response).getPersonalName());
-			logger.debug("Patron email {}", ((PatronInformationResponse)response).getEmailAddress());
-		} catch (Exception e) {
-			logger.debug("Could not get patron information.");
 		}
 	}
 
@@ -326,7 +244,6 @@ public class Main {
 		}
 	}
 	
-	
 	public void getItemInfo(Message response, String itemId) {
 		// Check if the server can support checkin
 		if (!((ACSStatus) response).getSupportedMessages().isSet(SupportedMessages.ITEM_INFORMATION)) {
@@ -349,14 +266,14 @@ public class Main {
 			System.exit(sip2Exception.getError());
 			
 		}
-		ItemInformationResponse itemInformationResponse = null;
+		//ItemInformationResponse itemInformationResponse = null;
 		
 		if (!(response instanceof ItemInformationResponse)) {
 			logger.error("Error - Item information Request did not return valid response from server {}", response.toString());
 			System.err.println("Error - Item information Request did not return valid response from server");
 			System.exit(Errors.ERROR_INVALID_PATRON_INFORMATION_REQUEST);
 		} else {
-			itemInformationResponse = (ItemInformationResponse)response;
+			//itemInformationResponse = (ItemInformationResponse)response;
 //			if (((ItemInformationResponse) response).) {
 //				logger.info("Patron information received successfully.");
 //			} else {

@@ -29,7 +29,6 @@ public class CheckoutProcess  extends SIP2Process {
 		this.barcode = barcode;
 	}
 
-
 	public int execute() {
 
 		if (patronId == null) {
