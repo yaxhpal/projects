@@ -47,4 +47,10 @@ public class Errors {
 	public static final int ERROR_CHECKIN_FAILED = 20;
 
 	public static final int ERROR_CHECKOUT_FAILED = 21;
+
+	public static final int ERROR_LOGIN_FAILED = 21;
+
+	public static final int ERROR_INVALID_ITEM_INFORMATION_REQUEST = 22;
+
+	public static final int ERROR_INVALID_PATRON = 23;
 }

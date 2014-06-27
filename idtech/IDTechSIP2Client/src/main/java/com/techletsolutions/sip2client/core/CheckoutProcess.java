@@ -15,6 +15,13 @@ import com.techletsolutions.sip2client.conf.Msg;
 import com.techletsolutions.sip2client.error.Errors;
 import com.techletsolutions.sip2client.exceptions.SIP2ClientException;
 
+/**
+ * This contains methods to carry out checkout process in SelfCheck
+ * Client.
+ * @author Yashpal Meena
+ * @email yashpal@techletsolutions.com
+ *
+ */
 public class CheckoutProcess  extends SIP2Process {
 
 	final static Logger logger = LoggerFactory.getLogger(CheckoutProcess.class);
@@ -29,6 +36,7 @@ public class CheckoutProcess  extends SIP2Process {
 		this.barcode = barcode;
 	}
 
+	@Override
 	public int execute() {
 
 		if (patronId == null) {

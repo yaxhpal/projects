@@ -15,6 +15,13 @@ import com.techletsolutions.sip2client.conf.Msg;
 import com.techletsolutions.sip2client.error.Errors;
 import com.techletsolutions.sip2client.exceptions.SIP2ClientException;
 
+/**
+ * This class contains the methods to carry out checkin process in SelfCheck
+ * client.
+ * @author Yashpal Meena
+ * @email yashpal@techletsolutions.com 
+ *
+ */
 public class CheckinProcess extends SIP2Process {
 
 	final static Logger logger = LoggerFactory.getLogger(CheckinProcess.class);
@@ -26,6 +33,7 @@ public class CheckinProcess extends SIP2Process {
 		this.barcodes = barcodes;
 	}
 	
+	@Override
 	public int execute() {
 
 		if (barcodes == null) {
@@ -48,7 +56,7 @@ public class CheckinProcess extends SIP2Process {
 		try {
 			response = connection.send(checkInRequest);
 		} catch (Exception e) {
-			logger.error(Msg.get("error.checkin.connection"), e);
+			logger.error(Msg.get("checkin.connection.error"), e);
 			return (new SIP2ClientException(e)).getError();
 		}
 		if (!(response instanceof CheckInResponse)) {
